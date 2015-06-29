@@ -1,0 +1,17 @@
+
+    <Executor name="tomcatThreadPool" namePrefix="catalina-exec-"
+        maxThreads="1000" minSpareThreads="100"/>
+
+
+    <Connector
+               executor="tomcatThreadPool"
+               port="8080"
+               protocol="HTTP/1.1"
+               URIEncoding="UTF-8"
+               minSpareThreads="100"  maxSpareThreads="1000"
+               enableLookups="false" disableUploadTimeout="true" connectionTimeout="20000"
+               acceptCount="600"  maxThreads="1000"
+               maxProcessors="1000"  minProcessors="100"
+               useURIValidationHack="false"
+               redirectPort="8443" />
+               

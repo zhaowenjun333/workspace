@@ -1,0 +1,28 @@
+1.查看版本信息
+#mysql -V
+
+
+2.添加客户端访问用户
+#mysql -u root -p
+#use mysql
+#select user, host, password, from user;
+#delete from user where host="localhost" and user="";
+#insert into `user`(`Host`,`User`,`Password`,`Select_priv`,`Insert_priv`,`Update_priv`,`Delete_priv`,`Create_priv`,`Drop_priv`,`Reload_priv`,`Shutdown_priv`,`Process_priv`,`File_priv`,`Grant_priv`,`References_priv`,`Index_priv`,`Alter_priv`,`Show_db_priv`,`Super_priv`,`Create_tmp_table_priv`,`Lock_tables_priv`,`Execute_priv`,`Repl_slave_priv`,`Repl_client_priv`,`Create_view_priv`,`Show_view_priv`,`Create_routine_priv`,`Alter_routine_priv`,`Create_user_priv`,`Event_priv`,`Trigger_priv`,`Create_tablespace_priv`,`ssl_type`,`ssl_cipher`,`x509_issuer`,`x509_subject`,`max_questions`,`max_updates`,`max_connections`,`max_user_connections`,`plugin`,`authentication_string`) values ('%', 'root', PASSWORD('123456'),'Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','','','','',0,0,0,0,'','');  
+#quit
+#service mysqld restart
+
+
+3.到处备份
+#mysqldump -u root -h localhost -P 3306 -p --all-databases > databases.sql  
+#mysqldump -u root -h localhost -P 3306 -p test > databases.sql  
+
+备注：mysqldump: Got error: 1066: Not unique table/alias: 'calendarsubscribe' when using LOCK TABLES
+修改/etc/my.cnf，将下面这行用#注释掉即可：
+#lower_case_table_names=1（等于1表示不区分表名大小写）
+注释掉后，重启mysql：
+#service  mysql  restart
+再导出，好了。
+
+4.导入数据
+#mysql -u$USER -p$PASSWD -hlocalhost -P3306 --default-character-set=utf8 zzlcs < databases.sql
+

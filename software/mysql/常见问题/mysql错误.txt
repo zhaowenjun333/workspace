@@ -1,0 +1,21 @@
+1.MySQL错误Another MySQL daemon already running with the same unix socket.
+
+To prevent the problem from occurring, you must perform a graceful shutdown of the server from the command line rather than powering off the server.
+
+# shutdown -h now
+
+
+This will stop the running services before powering down the machine.
+
+Based on Centos, an additional method for getting it back up again when you run into this problem is to move mysql.sock:
+
+# mv /var/lib/mysql/mysql.sock /var/lib/mysql/mysql.sock.bak
+
+# service mysqld start
+Restarting the service creates a new entry called mqsql.sock
+
+
+2.skip copying to tmp table on disk mysql（tmp 空间不足引起的问题）
+参考：http://stackoverflow.com/questions/7532307/skip-copying-to-tmp-table-on-disk-mysql
+
+

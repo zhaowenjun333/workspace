@@ -1,0 +1,2 @@
+并行回收集器代替串行收集器
+JAVA_OPTS='-server -XX:+PrintGCDetails -Xms1024m -Xmx2048m -XX:PermSize=64m -XX:MaxPermSize=64m -Xverify:none -XX:ParallelGCThreads=8 -XX:+UseParallelGC -XX:+UseParallelOldGC'

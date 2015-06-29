@@ -1,0 +1,22 @@
+查看是否已安装
+#rpm -qa|grep -i mariadb
+
+查看可以安装版本
+#yum list | grep mariadb
+
+安装服务
+#yum -y install mariadb
+#yum -y install mariadb-server
+
+检测安装
+#rpm -qi mariadb
+#rpm -q mariadb
+
+启动服务
+#systemctl start mariadb
+
+停止服务
+#systemctl stop mariadb
+
+
+如果需要修改 my.cnf 注意一下安装目录

@@ -1,0 +1,51 @@
+JProfiler 8.1.2
+
+注意：服务端 和 客户端 都要装
+
+（windows）客户端安装 so easy 一路 next
+
+服务器端安装
+
+1.下载
+#wget http://download-aws.ej-technologies.com/jprofiler/jprofiler_linux_8_1_2.tar.gz
+
+2.添加读写权限
+#chmod a+x jprofiler_linux_8_1_2.tar.gz
+
+3.解压
+#tar -xzvf jprofiler_linux_8_1_2.tar.gz
+
+
+4.生成 tomcat  startup_jprofiler.sh 启动文件
+ 4.1 打开客户端  
+ 4.2 Quick Start
+ 4.3 Profile an application sever ,locally or remotely
+ 4.4 Choose wizard - Apache Tomcat 7.x
+ 4.5 local or remote - On a remote computer - liunx X86/AMD64
+ 4.6 Profiled JVM  - JVM Vendor = Oracle ,Version = 1.7.0, Mode = hotspot
+             选择 64-bit JVM 要小心
+ 4.7 Startup Mode - Startup immediately ,connect later with JProfiler GUI
+ 4.8 Remote address - ip 地址
+ 4.9 Remote installation directory - linux jprofiler 安装目录   如 ： /usr/local/jprofiler8
+ 4.10 Locate start script - 本地 tomcat7/bin/startup.sh 文件
+ 4.11 Choose profiling port - 默认 8849
+ 4.12 Next
+ 4.13 Next
+ 4.14 Finish - No ,I will start the session later
+ 
+5.将 startup_jprofiler.sh 文件上传到tomcat/bin
+
+6.启动 （停掉已有的tomcat服务）
+#sh startup_jprofiler.sh
+ 
+
+
+
+
+
+
+
+
+
+
+

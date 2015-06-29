@@ -1,0 +1,32 @@
+-server 一定要作为第一个参数，启用JDK的server版本，在多个CPU时性能佳
+
+-Xms java Heap初始大小。 默认是物理内存的1/64。
+-Xmx java heap最大值。建议均设为物理内存的80%。不可超过物理内存。
+-Xmn java heap最小值，一般设置为Xmx的3、4分之一。
+
+-XX:PermSize 设定内存的永久保存区初始大小，缺省值为64M。
+-XX:MaxPermSize 设定内存的永久保存区最大大小，缺省值为64M。
+
+-XX:SurvivorRatio=2 生还者池的大小，默认是2。如
+-XX:NewSize 新生成的池的初始大小。 缺省值为2M。
+-XX:MaxNewSize 新生成的池的最大大小。 缺省值为32M。
++XX:AggressiveHeap 让jvm忽略Xmx参数，疯狂地吃完一个G物理内存，再吃尽一个G的swap。
+
+-Xss 每个线程的Stack大小
+-verbose:gc 现实垃圾收集信息
+-Xloggc:gc.log 指定垃圾收集日志文件
+-XX:+UseParNewGC 缩短minor收集的时间
+-XX:+UseConcMarkSweepGC 缩短major收集的时间
+-XX:userParNewGC 可用来设置并行收集(多CPU)
+-XX:ParallelGCThreads 可用来增加并行度(多CPU)
+-XX:UseParallelGC 设置后可以使用并行清除收集器(多CPU)
+
+-Xverify:none 禁用验证
+
+其他说明：
+1.“m”说明单位是MB，否则默认是KB
+2.一般使用物理内存的80%作为堆大小
+3.一般把-Xms和-Xmx设为一样大
+4.一般把-Xmn设置为-Xmx值的1/4
+5.一般将堆的总大小的50%到60%分配给新生成的池
+

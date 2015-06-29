@@ -1,0 +1,10 @@
+使用wget下载apache-tomcat-7.0.61.tar.gz
+#wget http://mirror.bit.edu.cn/apache/tomcat/tomcat-7/v7.0.61/bin/apache-tomcat-7.0.61.tar.gz
+
+解压
+#gzip -d apache-tomcat-7.0.61.tar.gz
+#tar xvf apache-tomcat-7.0.55.tar
+
+启动
+#cd apache-tomcat-7.0.55/bin
+#sh startup.sh

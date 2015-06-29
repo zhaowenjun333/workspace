@@ -1,0 +1,38 @@
+查看cpu
+#more /proc/cpuinfo | grep "model name"
+#grep "model name" /proc/cpuinfo
+#grep "model name" /proc/cpuinfo | cut -f2 -d:
+
+ 
+查看内存
+#grep MemTotal /proc/meminfo
+#grep MemTotal /proc/meminfo | cut -f2 -d:
+#free -m |grep "Mem" | awk '{print $2}'
+
+
+查看CPU位数(32 or 64)
+#getconf LONG_BIT
+
+
+查看当前linux的版本
+#more /etc/redhat-release
+#cat /etc/redhat-release
+
+
+查看内核版本
+#uname -r
+#uname -a
+
+
+
+查看默认语言
+#echo $LANG $LANGUAGE
+#cat /etc/sysconfig/i18n
+
+
+查看所属时区和是否使用UTC时间
+#cat /etc/sysconfig/clock
+
+
+查看开机时间多长
+#uptime

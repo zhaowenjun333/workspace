@@ -1,0 +1,7 @@
+#SHOW GLOBAL STATUS LIKE 'Created_tmp%tables';
+
+#SHOW GLOBAL VARIABLES LIKE '%table_size';
+
+#SHOW GLOBAL VARIABLES LIKE 'tmpdir';
+
+#SHOW VARIABLES LIKE '%max_allowed%';

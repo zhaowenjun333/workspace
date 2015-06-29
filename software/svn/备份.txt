@@ -1,0 +1,6 @@
+1.导出数据
+#cd /usr/local/svn/home/
+#svnadmin dump /usr/local/svn/home/ > dumpfile
+
+2.导入数据
+#svnadmin load /usr/local/svn/home/ < dumpfile

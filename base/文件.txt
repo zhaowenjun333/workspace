@@ -1,0 +1,60 @@
+1.批量删除文件
+#rm -rf catalina*.txt
+
+
+2.目录复制
+#cp -rf /usr/local/dir/  ./
+
+
+3.zip 压缩 or 解压( or 参考：http://blog.chinaunix.net/uid-20614832-id-1613768.html)
+
+#zip -r  apache-tomcat-7.zip apache-tomcat-7.0.61
+#zip -r myfile.zip ./*
+将当前目录下的所有文件和文件夹全部压缩成myfile.zip文件,－r表示递归压缩子目录下所有文件.
+
+
+#unzip -o -d /home/sunny myfile.zip
+把myfile.zip文件解压到 /home/sunny/
+-o:不提示的情况下覆盖文件；
+-d:-d /home/sunny 指明将文件解压缩到/home/sunny目录下
+
+
+#zip -d myfile.zip smart.txt
+删除压缩文件中smart.txt文件
+
+
+#zip -m myfile.zip ./rpm_info.txt
+向压缩文件中myfile.zip中添加rpm_info.txt文件
+
+
+
+4.文件移动
+#mv apache-tomcat-7.zip ./vcard-web/
+
+
+5.添加读写权限
+#chmod a+x filename
+备注：chmod (ugoa) (=-+) (rwx) file
+				u代表文件属主,
+				g代表文件属组,
+				o代表系统中除属主和属组成员之外的其他用户,
+				a代表所有用户(u,g,o)总和
+				+代表增加相应的权限,
+				-代表减少相应的权限,
+				=代表只有相应的权限
+
+6.查看文件大小
+#du -sh
+
+
+7.远程文件拷贝
+#scp root@115.28.167.226:/usr/local/svn/ dumpfile
+#scp dumpfile root@115.28.167.226:/usr/local/svn/ 
+
+
+8.查看文件大小大于 100M 的文件
+命令查看
+#df -h 
+#find /usr -size +100000000c
+
+

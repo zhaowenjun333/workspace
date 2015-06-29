@@ -1,0 +1,63 @@
+下载地址：http://nginx.org/en/download.html
+
+1.安装前提
+在安装nginx前，需要确保系统安装了g++、gcc、openssl-devel、pcre-devel和zlib-devel软件。安装必须软件
+#yum install gcc-c++
+#yum -y install zlib zlib-devel openssl openssl--devel pcre pcre-devel
+
+2.检查系统安装的Nginx
+#find -name nginx
+
+3.卸载原有的Nginx
+#yum remove nginx
+
+4.安装
+
+# tar -zxv -f nginx-1.2.6.tar.gz
+# rm -rf nginx-1.2.6.tar.gz
+# mv nginx-1.2.6 nginx
+# cd /usr/local/nginx
+# ./configure --prefix=/usr/local/nginx
+# make
+# make install
+
+
+5.配置
+修改防火墙配置： 
+# vi + /etc/sysconfig/iptables
+添加配置项 
+-A INPUT -m state --state NEW -m tcp -p tcp --dport 80 -j ACCEPT
+重启防火墙 
+# service iptables restart
+
+6.启动
+方法1
+# /usr/local/nginx/sbin/nginx -c /usr/local/nginx/conf/nginx.conf
+方法2
+# cd /usr/local/nginx/sbin
+# ./nginx
+
+7.停止
+查询nginx主进程号 
+ps -ef | grep nginx
+停止进程 
+kill -QUIT 主进程号 
+快速停止 
+kill -TERM 主进程号 
+强制停止 
+pkill -9 nginx
+
+
+8.重启
+#/usr/local/nginx/sbin/nginx -s reload
+
+9.重启附加
+
+#/etc/init.d/nginx start
+
+#/etc/init.d/nginx sttop
+
+#/etc/init.d/nginx reload
+
+#/etc/init.d/nginx restart
+

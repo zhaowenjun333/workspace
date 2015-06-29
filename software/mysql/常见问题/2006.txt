@@ -1,0 +1,5 @@
+查看包的大小
+#SHOW VARIABLES LIKE '%max_allowed%';
+
+#设置大小
+#set global max_allowed_packet =  536870912;

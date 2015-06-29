@@ -1,0 +1,21 @@
+查看是否已安装
+#rpm -qa|grep -i mysql
+
+查看可以安装版本
+#yum list | grep mysql
+
+安装服务
+#yum -y install mysql55
+
+检测安装
+#rpm -qi mysql55-mysql-devel.x86_64
+#rpm -q mysql
+
+启动服务
+#service mysql55-mysqld start
+
+停止服务
+#service mysql55-mysqld stop
+
+
+如果需要修改 my.cnf 注意一下安装目录

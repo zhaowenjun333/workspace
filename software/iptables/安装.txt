@@ -1,0 +1,23 @@
+CentOS 7.0默认使用的是firewall作为防火墙，这里改为iptables防火墙。
+
+1、关闭firewall：
+
+停止firewall
+#systemctl stop firewalld.service 
+
+禁止firewall开机启动
+#systemctl disable firewalld.service
+
+2、安装iptables防火墙
+#yum install iptables-services
+
+3.编辑防火墙配置文件
+#vi /etc/sysconfig/iptables
+-A INPUT -m state --state NEW -m tcp -p tcp --dport 80 -j ACCEPT
+
+5.最后重启防火墙使配置生效
+#systemctl restart iptables.service
+
+6.设置防火墙开机启动
+#systemctl enable iptables.service
+

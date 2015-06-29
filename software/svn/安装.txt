@@ -1,0 +1,89 @@
+1.检查已安装版本
+#rpm -qa subversion
+#rpm -ql subversion
+
+2.安装SVN
+# yum install httpd httpd-devel subversion mod_dav_svn mod_auth_mysql
+
+3.确认已安装了svn模块
+# cd /etc/httpd/modules
+# ls | grep svn
+
+4.验证安装
+# svnserve --version
+
+5.代码库创建
+# mkdir -p /usr/local/svn/home
+# svnadmin create /usr/local/svn/home
+
+执行上面的命令后，自动建立home库，查看/usr/local/svn/home 文件夹发现包含了conf, db,format,hooks, locks, README.txt等文件，说明一个SVN库已经建立。
+
+6.配置代码库
+#cd /usr/local/svn/home/conf
+
+7.用户密码passwd配置
+# vi  passwd
+wangpf = 123456
+
+8.权限控制authz配置
+# vi + authz
+
+[/](设置[/]代表根目录下所有的资源)
+wangpf=rw
+
+9.服务svnserve.conf配置
+# vi + svnserve.conf
+
+追加以下内容：
+[general]
+#匿名访问的权限，可以是read,write,none,默认为read
+anon-access=none
+#使授权用户有写权限 
+auth-access=write
+#密码数据库的路径 
+password-db=passwd
+#访问控制文件 
+authz-db=authz
+#认证命名空间，subversion会在认证提示里显示，并且作为凭证缓存的关键字 
+realm=/opt/svn/repositories
+
+10.配置防火墙端口
+配置防火墙端口
+# vi /etc/sysconfig/iptables
+添加以下内容： 
+-A INPUT -m state --state NEW -m tcp -p tcp --dport 3690 -j ACCEPT
+保存后重启防火墙 
+# service iptables restart
+
+11.启动SVN
+svnserve -d -r /opt/svn/repositories
+
+12.查看SVN进程
+# ps -ef|grep svn|grep -v grep
+
+13.检测SVN 端口
+# netstat -ln |grep 3690
+
+14.停止重启SVN
+# killall svnserve
+
+15.重启svn
+# svnserve -d -r /usr/local/svn/home
+
+
+
+
+参考：http://www.cnblogs.com/zhoulf/archive/2013/02/02/2889949.html
+
+
+
+
+
+
+
+
+
+
+
+
+

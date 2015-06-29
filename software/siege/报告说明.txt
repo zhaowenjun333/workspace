@@ -1,0 +1,12 @@
+Transactions: 3419263 hits //完成419263次处理
+Availability: 100.00 % //100.00 % 成功率
+Elapsed time: 5999.69 secs //总共用时
+Data transferred: 84273.91 MB //共数据传输84273.91 MB
+Response time: 0.37 secs //相应用时1.65秒：显示网络连接的速度
+Transaction rate: 569.91 trans/sec //均每秒完成 569.91 次处理：表示服务器后
+Throughput: 14.05 MB/sec //平均每秒传送数据
+Concurrency: 213.42 //实际最高并发数
+Successful transactions: 2564081 //成功处理次数
+Failed transactions: 11 //失败处理次数
+Longest transaction: 29.04 //每次传输所花最长时间
+Shortest transaction: 0.00 //每次传输所花最短时间

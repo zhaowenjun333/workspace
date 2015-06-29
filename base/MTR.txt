@@ -1,0 +1,8 @@
+On CentOS and Fedora systems you will want to issue the following commands to update repositories,
+upgrade installed packages, and install the MTR program
+
+#yum update
+
+#yum install mtr
+
+#mtr -rw 106.187.41.160 

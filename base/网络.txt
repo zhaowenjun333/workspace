@@ -1,0 +1,29 @@
+查看主机名
+#hostname
+#cat /etc/sysconfig/network
+
+
+查看ip，mac地址
+在ifcfg-eth0 文件里你可以看到mac，网关等信息。
+
+#ifconfig
+#cat /etc/sysconfig/network-scripts/ifcfg-eth0 | grep IPADDR
+#cat /etc/sysconfig/network-scripts/ifcfg-eth0 | grep IPADDR | cut -f2 -d=
+#ifconfig eth0 |grep "inet addr:" |awk '{print $2}'|cut -c 6-
+#ifconfig   | grep 'inet addr:'| grep -v '127.0.0.1' | cut -d: -f2 | awk '{ print $1}'
+
+
+查看网关
+#cat /etc/sysconfig/network
+
+
+查看dns
+#cat /etc/resolv.conf
+
+
+查看端口状态
+#netstat -nalp|grep 80
+
+
+ 查看163.com的服务器环境
+#curl --head www.163.com       

@@ -1,0 +1,7 @@
+查看版本
+#cd bin/
+# ./version.sh
+
+
+修改jvm 配置
+# vi TOMCAT_HOME/bin/catalina.sh

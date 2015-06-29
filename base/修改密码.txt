@@ -1,0 +1,2 @@
+修改密码
+#sudo passwd root

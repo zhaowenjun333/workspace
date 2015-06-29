@@ -1,0 +1,19 @@
+CentOS
+参考文档
+http://www.linuxidc.com/Linux/2012-10/71706.htm
+http://www.cnblogs.com/mchina/archive/2013/02/20/2883404.html
+
+1、安装前准备
+
+Nagios安装前，首先安装相关主件，对于RHEL / CentOS系统: (依赖包的安装，其中httpd是为了是nagiox通过web界面显示出来)
+
+#yum install -y wget httpd php gcc glibc glibc-common gd gd-devel make net-snmp
+
+下载Nagios程序和Nagios插件
+
+#wget http://prdownloads.sourceforge.net/sourceforge/nagios/nagios-4.0.8.tar.gz
+
+#wget http://sourceforge.net/projects/nagiosplug/files/nagiosplug/2.0.3/nagios-plugins-2.0.3.tar.gz
+
+
+

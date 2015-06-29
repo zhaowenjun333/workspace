@@ -1,0 +1,13 @@
+查看是否已安装
+#rpm -qa|grep -i mysql
+
+停掉服务
+#service mysqld stop
+
+删除mysql
+#yum remove mysql*(MySQL-server,MySQL-client,MySQL-debuginfo .....以及全部安装的应用) 
+
+删除部分文件
+#rm -rf /var/lib/mysql
+#rm -rf /etc/my.cnf
+
