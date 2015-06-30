@@ -1,4 +1,5 @@
 这个倒是很有用，这样就不用再执行时加上./了，而且可以在任何地方执行
+# cp redis.conf /etc/
 # cp redis-benchmark redis-cli redis-server /usr/bin/
 
 
