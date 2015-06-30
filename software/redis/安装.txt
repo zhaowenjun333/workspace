@@ -1,0 +1,20 @@
+下载路径：http://redis.io/download
+
+下载安装
+# wget http://download.redis.io/releases/redis-3.0.2.tar.gz
+# tar xzf redis-3.0.2.tar.gz
+# cd redis-3.0.2
+# make
+
+启动
+# cd redis-3.0.2
+# src/redis-server
+
+
+连接测试
+# cd redis-3.0.2
+# src/redis-cli
+
+#测试
+127.0.0.1:6379> set foo bar
+127.0.0.1:6379> get foo
