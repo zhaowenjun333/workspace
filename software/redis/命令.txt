@@ -24,4 +24,19 @@ find whatever you want
     5、查询key
   　redis 127.0.0.1:6379> keys *
 
+    6.判断key的类型
+    redis 127.0.0.1:6379> type key
+    redis 127.0.0.1:6379> hash
+
+    7.查看不同类型的值
+    string
+    redis 127.0.0.1:6379> get key
+
+    hash
+    redis 127.0.0.1:6379> hgetall key
+    redis 127.0.0.1:6379> hget key key2
+
+    list
+    redis 127.0.0.1:6379> lindex key 0
+
 其他参考：http://langgufu.iteye.com/blog/1434408
