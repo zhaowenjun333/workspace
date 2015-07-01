@@ -21,5 +21,7 @@ find whatever you want
 　　(integer) 0
 　　其中0，代表此key不存在;1代表存在。
 
+    5、查询key
+  　redis 127.0.0.1:6379> keys *
 
 其他参考：http://langgufu.iteye.com/blog/1434408
