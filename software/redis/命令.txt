@@ -1,34 +1,34 @@
-²Î¿¼£ºhttp://redis.io/commands
+å‚è€ƒï¼šhttp://redis.io/commands
 
 find whatever you want
 
-    1¡¢²åÈëÊı¾İ
-¡¡¡¡redis 127.0.0.1:6379> set name wwl
-¡¡¡¡OK
-¡¡¡¡ÉèÖÃÒ»¸ökey-value¶Ô¡£
+    1ã€æ’å…¥æ•°æ®
+ã€€ã€€redis 127.0.0.1:6379> set name wwl
+ã€€ã€€OK
+ã€€ã€€è®¾ç½®ä¸€ä¸ªkey-valueå¯¹ã€‚
 
-¡¡¡¡2¡¢²éÑ¯Êı¾İ
-¡¡¡¡redis 127.0.0.1:6379> get name
-¡¡¡¡"wwl"
-¡¡¡¡È¡³ökeyËù¶ÔÓ¦µÄvalue¡£
+ã€€ã€€2ã€æŸ¥è¯¢æ•°æ®
+ã€€ã€€redis 127.0.0.1:6379> get name
+ã€€ã€€"wwl"
+ã€€ã€€å–å‡ºkeyæ‰€å¯¹åº”çš„valueã€‚
 
-¡¡¡¡3¡¢É¾³ı¼üÖµ
-¡¡¡¡redis 127.0.0.1:6379> del name
-¡¡¡¡É¾³ıÕâ¸ökey¼°¶ÔÓ¦µÄvalue¡£
+ã€€ã€€3ã€åˆ é™¤é”®å€¼
+ã€€ã€€redis 127.0.0.1:6379> del name
+ã€€ã€€åˆ é™¤è¿™ä¸ªkeyåŠå¯¹åº”çš„valueã€‚
 
-¡¡¡¡4¡¢ÑéÖ¤¼üÊÇ·ñ´æÔÚ
-¡¡¡¡redis 127.0.0.1:6379> exists name
-¡¡¡¡(integer) 0
-¡¡¡¡ÆäÖĞ0£¬´ú±í´Ëkey²»´æÔÚ;1´ú±í´æÔÚ¡£
+ã€€ã€€4ã€éªŒè¯é”®æ˜¯å¦å­˜åœ¨
+ã€€ã€€redis 127.0.0.1:6379> exists name
+ã€€ã€€(integer) 0
+ã€€ã€€å…¶ä¸­0ï¼Œä»£è¡¨æ­¤keyä¸å­˜åœ¨;1ä»£è¡¨å­˜åœ¨ã€‚
 
-    5¡¢²éÑ¯key
-  ¡¡redis 127.0.0.1:6379> keys *
+    5ã€æŸ¥è¯¢key
+  ã€€redis 127.0.0.1:6379> keys *
 
-    6.ÅĞ¶ÏkeyµÄÀàĞÍ
+    6.åˆ¤æ–­keyçš„ç±»å‹
     redis 127.0.0.1:6379> type key
     redis 127.0.0.1:6379> hash
 
-    7.²é¿´²»Í¬ÀàĞÍµÄÖµ
+    7.æŸ¥çœ‹ä¸åŒç±»å‹çš„å€¼
     string
     redis 127.0.0.1:6379> get key
 
@@ -39,4 +39,8 @@ find whatever you want
     list
     redis 127.0.0.1:6379> lindex key 0
 
-ÆäËû²Î¿¼£ºhttp://langgufu.iteye.com/blog/1434408
+    8.æ¸…ç©ºæ•°æ®
+    redis 127.0.0.1:6379> flushall
+    redis 127.0.0.1:6379> flushdb
+    
+å…¶ä»–å‚è€ƒï¼šhttp://langgufu.iteye.com/blog/1434408
