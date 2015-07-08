@@ -19,3 +19,4 @@
 
 
 如果需要修改 my.cnf 注意一下安装目录
+#vi  /opt/rh/mysql55/root/etc/my.cnf
