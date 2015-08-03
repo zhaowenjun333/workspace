@@ -1,0 +1,16 @@
+1.创建用户  
+# useradd dev
+
+2.修改密码  
+# passwd dev 
+
+3.sudoers 文件添加可写权限
+# chmod -v u+w /etc/sudoers  
+
+4.在 sudoers 文件添加新用户信息到 ## Allow root to run any commands anywher 下，修改后的效果为
+## Allow root to run any commands anywher  
+root    ALL=(ALL)       ALL  
+dev     ALL=(ALL)       ALL #新增用户信息  
+
+5.取消 sudoers 文件可写权限
+# chmod -v u-w /etc/sudoers  
