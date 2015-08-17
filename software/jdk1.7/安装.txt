@@ -23,6 +23,17 @@ export JAVA_OPTS="$JAVA_OPTS -Dcom.sun.management.jmxremote.ssl=false"
 
 #source /etc/profile
 
+
+or
+
+修改~/.bashrc文件（该方法修改后只对当前用户有效，对该用户的所有shell都有效）
+用vim编辑器打开~/.bashrc文件
+在文件尾部加入jdk环境变量的定义
+set JAVA_HOME=/usr/local/java/jdk1.7.0_79
+export JAVA_HOME set PATH=$JAVA_HOME/bin:$PATH
+export PATH set CLASSPATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar
+export CLASSPATH
+
 4、检验是否安装成功
 
 #java -version
