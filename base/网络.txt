@@ -23,7 +23,7 @@
 
 查看端口状态
 #netstat -nalp|grep 80
-
+#netstat -lnp |grep 80
 
  查看163.com的服务器环境
 #curl --head www.163.com       
