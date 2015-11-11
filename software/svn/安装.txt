@@ -12,7 +12,7 @@
 4.验证安装
 # svnserve --version
 
-5.代码库创建
+5.代码库创建 - 可以区分格式 http://www.blogjava.net/jasmine214--love/archive/2011/01/18/343160.html
 # mkdir -p /usr/local/svn/home
 # svnadmin create /usr/local/svn/home
 
