@@ -1,0 +1,21 @@
+1.进入仓库/hooks目录，找到pre-commit.tmpl文件，重命名，去掉后缀.tmpl。 编辑pre-commit文件
+
+2.注释
+
+#SVNLOOK=/usr/bin/svnlook
+#$SVNLOOK log -t "$TXN" "$REPOS" | \
+#   grep "[a-zA-Z0-9]" > /dev/null || exit 1
+
+3.添加 
+
+#要求注释不能少于5个字符，您可自定义
+LOGMSG=`$SVNLOOK log -t "$TXN" "$REPOS" | grep "[a-zA-Z0-9]" | wc -c`
+if [ "$LOGMSG" -lt 5 ];
+then
+  echo -e "\nLog message cann't be empty! you must input more than 5 chars as comment!." 1>&2
+  exit 1
+fi
+
+4.添加可执行权限 
+
+chmod +x pre-commit
