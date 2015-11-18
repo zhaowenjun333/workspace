@@ -1,0 +1,124 @@
+系统配置：CentOS release 6.5 (Final)  64 位
+
+安装 httpd 
+
+
+升级 apr，apr-util ，pcre
+
+
+1.安装包gcc或gcc-c++
+
+yum list gcc-c++
+
+yum install  gcc-c++
+
+yum list gcc or rpm -q gcc
+
+yum install  gcc
+
+
+2.安装其他依赖
+
+yum -y install libtool-libs autoconf freetype-devel gd libjpeg-devel  libpng-devel libxml2-devel ncurses-devel zlib-devel zip unzip curl-devel wget crontabs file bison cmake patch mlocate flex diffutils automake make kernel-devel cpp readline-devel openssl-devel vim-minimal glibc-devel  glib2-devel bzip2-devel e2fsprogs-devel libidn-devel  gettext-devel expat-devel libcap-devel libtool-ltdl-devel pam-devel pcre-devel libmcrypt-devel
+
+
+3.安装 apr，apr-util
+
+卸载：
+rpm -qa|grep apr
+yum remove apr-*
+
+下载 
+wget http://mirror.bjtu.edu.cn/apache//apr/apr-1.5.2.tar.gz
+wget http://mirror.bjtu.edu.cn/apache//apr/apr-util-1.5.4.tar.gz
+wget http://mirror.bjtu.edu.cn/apache//httpd/httpd-2.4.17.tar.gz
+
+pcre-8.35.tar.gz
+
+
+解压
+tar -zxvf apr-1.5.2.tar.gz
+tar -zxvf apr-util-1.5.4.tar.gz
+tar -zxvf pcre-8.35.tar.gz
+tar -zxvf httpd-2.4.17.tar.gz
+
+
+同级目录下创建安装目录
+
+mkdir apr
+mkdir apr-util
+mkdir pcre
+mkdir httpd
+
+安装：
+
+cd apr-1.5.2
+
+./configure --prefix=..../apr
+
+make 
+
+make install 
+
+安装apr的过程中可能会遇到rm: cannot remove `libtoolT': No such file or directory。
+如果遇到上述情况，则vim configure 在30048行 注释 掉$RM "$cfgfile" 重新执行.configure即可。也可以忽略不管。
+
+
+
+cd apr-util-1.5.4
+
+./configure --prefix=..../apr-util --with-apr=..../apr
+
+make 
+
+make install 
+
+
+cd  pcre-8.35
+
+
+./configure --prefix=..../pcre --with-apr=..../apr
+
+make 
+
+make install 
+
+
+cd  httpd-2.4.17
+
+./configure --prefix=..../httpd --with-pcre=..../pcre --with-apr=..../apr --with-apr-util=..../apr-util
+
+make 
+
+make install 
+
+
+
+4.修改配置文件
+
+cd http/conf/
+
+vi httpd.conf
+
+
+
+Listen 8089
+
+DocumentRoot
+
+ServerName http://118.186.245.254:8089
+
+
+
+
+5.启动 httpd 服务
+
+cd httpd/bin
+
+./apachectl start
+
+
+
+5.查看端口使用情况 
+
+ netstat -lnp|grep 8089
