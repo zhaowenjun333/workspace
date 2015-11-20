@@ -1,0 +1,23 @@
+1.下载安装文件 php-5.6.15.tar.gz
+
+
+http://php.net/downloads.php
+
+2.解压 php-5.6.15.tar.gz
+
+tar -zxvf php-5.6.15.tar.gz
+
+3.创建安装目录
+
+mkdir php56
+
+4.配置
+
+sudo ./configure --prefix=/home/shangrong/web/web/apps/apache/php5 --with-apxs2=/home/shangrong/web/web/apps/apache/httpd/bin/apxs --with-config-file-path=/usr/local/lib --enable-track-vars --with-xml
+
+6.安装
+
+make
+
+make install
+
