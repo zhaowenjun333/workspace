@@ -1,0 +1,14 @@
+
+
+Discuz! System Error
+
+Oops! System file lost: class/class_mysqli.php
+
+
+在配置时注意 
+
+执行 ./configure 
+
+后添加：
+
+--with-mysql=mysqlnd
