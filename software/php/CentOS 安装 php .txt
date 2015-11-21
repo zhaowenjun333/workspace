@@ -13,11 +13,15 @@ mkdir php56
 
 4.配置
 
-sudo ./configure --prefix=/home/shangrong/web/web/apps/apache/php5 --with-apxs2=/home/shangrong/web/web/apps/apache/httpd/bin/apxs --with-config-file-path=/usr/local/lib --enable-track-vars --with-xml
+sudo ./configure --prefix=/home/shangrong/web/web/apps/apache/php5 --with-apxs2=/home/shangrong/web/web/apps/apache/httpd/bin/apxs --with-mysql=mysqlnd
 
 6.安装
 
 make
 
 make install
+
+7.拷贝 php.ini 
+
+cp php.ini-dev**  /home/shangrong/web/web/apps/apache/php5/lib/php.ini
 
