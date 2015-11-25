@@ -1,0 +1,261 @@
+1.安装文件下载
+
+1.1.libevent-2.0.22-stable.tar.gz   下载地址： http://libevent.org/
+  
+1.2.FastDFS_v4.06.tar.gz   下载地址： https://code.google.com/p/fastdfs/
+
+1.3.fastdfs-nginx-module_v1.15.tar.gz 下载地址： https://code.google.com/p/fastdfs/
+
+1.4.nginx-1.9.7.tar.gz 下载地址： http://nginx.org/en/download.html
+
+
+2.安装libevent
+
+ tar -zxvpf libevent-2.0.22-stable.tar.gz
+
+ mkdir libevent
+ 
+ cd libevent-2.0.22-stable
+ 
+ ./configure --prefix=/home/shangrong/web/web/FastDFS/libevent
+ 
+ make
+ 
+ make install
+ 
+ 
+3.安装FastDFS_v4
+ 
+ tar xvf FastDFS_v4.06.tar.gz
+
+ 3.1.自定义安装目录
+ 
+ mkdir fdfs  or  mkdir -p /home/shangrong/web/web/FastDFS/fdfs
+
+ 3.2.自定义配置文件目录
+ 
+ cd fdfs 
+ 
+ mkdir conf
+
+ 3.3.修改安装文件配置路径
+
+ cd FastDFS
+ 
+ vi make.sh
+ 
+ TARGET_PREFIX=/home/shangrong/web/web/FastDFS/fdfs  ---安装路径
+ TARGET_CONF_PATH=/home/shangrong/web/web/FastDFS/fdfs/conf  ---配置文件路径  
+
+ WITH_LINUX_SERVICE=1 ---是否为linux服务  
+
+ 
+ if [ "$uname" = "Linux" ]; then 
+    if [ "$WITH_LINUX_SERVICE" = "1" ]; then 
+      if [ ! -d $TARGET_CONF_PATH ]; then 
+        mkdir -p $TARGET_CONF_PATH 
+        cp -f conf/tracker.conf $TARGET_CONF_PATH 
+        cp -f conf/storage.conf $TARGET_CONF_PATH 
+        cp -f conf/client.conf $TARGET_CONF_PATH 
+        cp -f conf/http.conf $TARGET_CONF_PATH 
+        cp -f conf/mime.types $TARGET_CONF_PATH 
+      fi 
+
+
+      cp -f init.d/fdfs_trackerd /etc/rc.d/init.d/ 
+      cp -f init.d/fdfs_storaged /etc/rc.d/init.d/ 
+      /sbin/chkconfig --add fdfs_trackerd 
+      /sbin/chkconfig --add fdfs_storaged 
+    fi 
+  fi 
+  
+  
+  
+ 3.4.指定libevent的lib目录
+ ./make.sh C_INCLUDE_PATH=/home/shangrong/web/web/FastDFS/libevent/include LIBRARY_PATH=/home/shangrong/web/web/FastDFS/libevent/lib
+ 
+ 
+ 3.5.安装
+ ./make.sh install
+ 
+ 3.6.检测安装目录是否存在启动文件 ,FastDFS/tracker/fdfs_trackerd,FastDFS/storage/fdfs_storaged 
+ 
+ cd /home/shangrong/web/web/FastDFS/fdfs/conf
+ 
+ cp /home/shangrong/web/web/FastDFS/FastDFS/tracker/fdfs_trackerd ./
+
+ cp /home/shangrong/web/web/FastDFS/FastDFS/storage/fdfs_storaged ./
+ 
+  cp /home/shangrong/web/web/FastDFS/FastDFS/conf/storage_ids.conf ./
+  
+ 
+ 3.7.创建tracker服务目录,并且启动
+ 
+ mkdir -p /home/shangrong/web/web/FastDFS/data/tracker
+
+ cd /home/shangrong/web/web/FastDFS/fdfs/conf
+   
+ vi tracker.conf
+
+ base_path=/home/shangrong/web/web/FastDFS/data/tracker 
+ bind_addr=192.168.9.169 ----可以忽略为空 ，匹配全部ip地址
+ 
+ ./fdfs_trackerd ./tracker.conf
+ 
+ 查看是否启动
+ netstat -ntpl | grep 22122
+ 
+ 查看启动日志
+ tail -f tracker/logs/trackerd.log
+
+ 
+ 3.8.创建storage service 服务目录,并且启动
+ 
+ mkdir -p /home/shangrong/web/web/FastDFS/data/store
+ mkdir -p /home/shangrong/web/web/FastDFS/data/store/store0 
+ mkdir -p /home/shangrong/web/web/FastDFS/data/store/store1
+ mkdir -p /home/shangrong/web/web/FastDFS/data/store/store2 
+ 
+ 修改配置文件
+ 
+ cd /home/shangrong/web/web/FastDFS/fdfs/conf
+ 
+ vi storage.conf
+ 
+ base_path=/home/shangrong/web/web/FastDFS/data/store 
+ 
+ store_path_count=3 
+ store_path0=/home/shangrong/web/web/FastDFS/data/store/store0 
+ store_path1=/home/shangrong/web/web/FastDFS/data/store/store1 
+ store_path2=/home/shangrong/web/web/FastDFS/data/store/store2 
+
+ tracker_server=192.168.9.169:22122 
+ 
+ 
+ ./fdfs_storaged ./storage.conf
+ 
+  
+  查看是否启动
+ netstat -ntpl | grep 23000
+ 
+ 查看启动日志
+ tail -f store/logs/storaged.log
+
+ 
+ 
+ 
+  
+4.设置软连接(配置nginx时使用)
+
+ sudo ln -s /home/shangrong/web/web/FastDFS/libevent/lib/libevent-2.0.so.5 /usr/lib/libevent-2.0.so.5
+ sudo ln -s /home/shangrong/web/web/FastDFS/libevent/lib/libevent-2.0.so.5 /usr/lib64/libevent-2.0.so.5 
+ sudo ln -s /home/shangrong/web/web/FastDFS/libevent/lib/libevent-2.0.so.5 /lib64/libevent-2.0.so.5 
+ sudo ln -s /home/shangrong/web/web/FastDFS/libevent/lib/libevent-2.0.so.5 /lib/libevent-2.0.so.5 
+ sudo ln -s /home/shangrong/web/web/FastDFS/libevent/lib/libevent-2.0.so.5 /usr/local/lib64/libevent-2.0.so.5 
+ sudo ln -s /home/shangrong/web/web/FastDFS/libevent/lib/libevent-2.0.so.5 /usr/local/lib/libevent-2.0.so.5 
+ 
+ sudo ln -s /home/shangrong/web/web/FastDFS/fdfs/lib/libfastcommon.so /usr/lib/libfastcommon.so 
+ sudo ln -s /home/shangrong/web/web/FastDFS/fdfs/lib/libfastcommon.so /usr/lib64/libfastcommon.so 
+ sudo ln -s /home/shangrong/web/web/FastDFS/fdfs/lib/libfdfsclient.so /usr/lib64/libfdfsclient.so 
+ sudo ln -s /home/shangrong/web/web/FastDFS/fdfs/lib/libfdfsclient.so /usr/lib/libfdfsclient.so 
+
+ 
+ 
+5.解压fastdfs-nginx-module_v1.15.tar.gz和 nginx-1.4.2.tar.gz 
+
+ tar -xzf nginx-1.9.7.tar.gz
+ 
+ tar -xzf fastdfs-nginx-module_v1.15.tar.gz
+ 
+6.配置  fastdfs-nginx-module
+
+  cd fastdfs-nginx-module/src
+  
+  vi config
+ 
+
+
+ngx_addon_name=ngx_http_fastdfs_module
+HTTP_MODULES="$HTTP_MODULES ngx_http_fastdfs_module"
+NGX_ADDON_SRCS="$NGX_ADDON_SRCS $ngx_addon_dir/ngx_http_fastdfs_module.c"
+CORE_INCS="$CORE_INCS /home/shangrong/web/web/FastDFS/fdfs/include/fastdfs /home/shangrong/web/web/FastDFS/fdfs/include/fastcommon/"
+CORE_LIBS="$CORE_LIBS -L/home/shangrong/web/web/FastDFS/fdfs/lib -lfastcommon -lfdfsclient"
+CFLAGS="$CFLAGS -D_FILE_OFFSET_BITS=64 -DFDFS_OUTPUT_CHUNK_SIZE='256*1024' -DFDFS_MOD_CONF_FILENAME='\"/home/shangrong/web/web/FastDFS/fdfs/conf/mod_fastdfs.conf\"'"
+
+
+  配置文件复制：
+  
+  cd  /home/shangrong/web/web/FastDFS/fdfs/conf/
+  
+  cp  /home/shangrong/web/web/FastDFS/fastdfs-nginx-module/src/mod_fastdfs.conf  ./
+    
+
+
+7.安装nginx
+
+ mkdir nginx-fastdfs-install
+
+ cd nginx-1.9.7
+
+ ./configure --prefix=/home/shangrong/web/web/FastDFS/nginx-fastdfs-install --add-module=/home/shangrong/web/web/FastDFS/fastdfs-nginx-module/src 
+ 
+ make
+ 
+ make install
+ 
+
+8.配置nginx.conf 
+
+  vi nginx-fastdfs-install/conf/nginx.conf
+
+
+      location /image {
+         root /home/shangrong/web/web/FastDFS/data/store/store0/data;
+        ngx_fastdfs_module;
+      }
+
+      location /contract {
+        root /home/shangrong/web/web/FastDFS/data/store/store1/data;
+       ngx_fastdfs_module;
+      }
+
+      location /file {
+       root /home/shangrong/web/web/FastDFS/data/store/store2/data;
+       ngx_fastdfs_module;
+      }
+
+
+	  
+9.配置mod_fastdfs.conf 
+
+    mkdir -p data/nginx_mod
+ 
+    cd fdfs/conf/
+
+    vi mod_fastdfs.conf
+	 
+	 base_path=/home/shangrong/web/web/FastDFS/data/nginx_mod 
+ 
+	 store_path_count=3 
+	 store_path0=/home/shangrong/web/web/FastDFS/data/store/store0 
+	 store_path1=/home/shangrong/web/web/FastDFS/data/store/store1 
+	 store_path2=/home/shangrong/web/web/FastDFS/data/store/store2 
+ 
+	
+
+
+
+10.启动nginx 
+
+    cd nginx-fastdfs-install/sbin/
+	
+    ./nginx 
+
+	
+	
+11.启动顺序   tracker, storage ,nginx 
+
+
+
+
+
