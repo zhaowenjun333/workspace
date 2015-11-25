@@ -209,17 +209,17 @@ CFLAGS="$CFLAGS -D_FILE_OFFSET_BITS=64 -DFDFS_OUTPUT_CHUNK_SIZE='256*1024' -DFDF
   vi nginx-fastdfs-install/conf/nginx.conf
 
 
-      location /image {
+      location /M00 {
          root /home/shangrong/web/web/FastDFS/data/store/store0/data;
         ngx_fastdfs_module;
       }
 
-      location /contract {
+      location /M01 {
         root /home/shangrong/web/web/FastDFS/data/store/store1/data;
        ngx_fastdfs_module;
       }
 
-      location /file {
+      location /M02 {
        root /home/shangrong/web/web/FastDFS/data/store/store2/data;
        ngx_fastdfs_module;
       }
@@ -257,5 +257,7 @@ CFLAGS="$CFLAGS -D_FILE_OFFSET_BITS=64 -DFDFS_OUTPUT_CHUNK_SIZE='256*1024' -DFDF
 
 
 
+12.添加软连接 
 
+ln -s /home/shangrong/web/web/FastDFS/data/store/store0/data /home/shangrong/web/web/FastDFS/data/store/store0/data/M00
 
