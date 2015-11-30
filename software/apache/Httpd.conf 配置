@@ -1,0 +1,11 @@
+一、让apache解析html里的PHP代码
+
+打开httpd.conf配置文件，找到以下语句加入.html或者.htm
+
+AddType application/x-httpd-php .html .htm .php .phtml  
+
+AddType application/x-httpd-php-source .html .htm .phps  
+
+#如果apache开启了mod_rewrite模块，可以编辑.htaccess添加下面那段语句
+
+AddType application/x-httpd-php .html .htm  
