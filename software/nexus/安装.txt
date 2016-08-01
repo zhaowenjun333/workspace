@@ -3,3 +3,4 @@
 3.解压 tar -zxf nexus-latest-bundle.tar.gz    
 4.目录修改权限非root 用户,  chmod user file/folder
 5.启动 /nexus-2.8.1-01/bin  nexus start
+6.http://192.168.1.200:8081/nexus/#welcome
