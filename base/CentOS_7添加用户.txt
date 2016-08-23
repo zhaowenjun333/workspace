@@ -14,3 +14,5 @@ dev     ALL=(ALL)       ALL #新增用户信息
 
 5.取消 sudoers 文件可写权限
 # chmod -v u-w /etc/sudoers  
+
+
