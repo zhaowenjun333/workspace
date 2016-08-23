@@ -8,7 +8,7 @@
 # chmod -v u+w /etc/sudoers  
 
 4.在 sudoers 文件添加新用户信息到 ## Allow root to run any commands anywher 下，修改后的效果为
-## Allow root to run any commands anywher  
+## Allow root to ßrun any commands anywher  
 root    ALL=(ALL)       ALL  
 dev     ALL=(ALL)       ALL #新增用户信息  
 
