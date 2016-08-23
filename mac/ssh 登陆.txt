@@ -1,0 +1,15 @@
+
+#cd ~/.ssh/
+
+#cp id_rsa.server 　./
+
+#vi config 
+
+Host 192.168.1.200
+User root
+
+#vi /etc/ssh/ssh_config
+
+IdentityFile ~/.ssh/id_rsa.server
+IdentityFile ~/.ssh/id_rsa.git
+
