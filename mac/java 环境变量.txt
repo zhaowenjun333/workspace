@@ -1,0 +1,10 @@
+mac java 环境变量设置
+
+vi ~/.bash_profile
+
+export M2_HOME=/workspace/apache-maven-3.3.9
+export PATH=$PATH:$M2_HOME/bin
+export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.7.0_79.jdk/Contents/Home
+
+
+控制台重新登陆 环境变量生效
