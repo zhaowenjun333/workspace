@@ -1,16 +1,16 @@
-安装参考
+
 
 http://docs.mongodb.org/manual/administration/install-on-linux/
 
-创建文件
+
 
 # cd /etc/yum.repos.d/
 # vi mongodb-org-3.0.repo
 
-安装
+
 # sudo yum install -y mongodb-org
 
-启动
+
 # sudo service mongod start
 
 http://docs.mongodb.org/manual/tutorial/install-mongodb-on-red-hat/
