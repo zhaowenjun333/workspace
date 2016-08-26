@@ -1,0 +1,33 @@
+Elasticsearch-jdbc
+
+源文件下载地址  https://github.com/jprante/elasticsearch-jdbc​
+
+ 
+将Elasticsearch-jdbc-2.3.3.0​-lib.zip 解压到 elasticsearch-jdbc-2.3.3.0 根目录下
+
+
+目录 \bin 下为倒库的脚本文件
+
+
+echo {^
+    type : "jdbc",^
+    jdbc : {^
+        url : "jdbc:postgresql://192.168.1.200:5432/wwxiu_20160606",^
+        user : "postgres",^
+        password : "pk2014",^
+        sql :  "select *,id as _id from fo_user",^
+		locale:"zh_CN",^
+        elasticsearch : {^
+             "cluster" : "wawatest",^  #与Elasticsearch环境保持一致
+             "host" : "127.0.0.1",^
+             "port" : 9300^
+        },^
+        index : "user",^ #与Elasticsearch环境保持一致
+		type : "user"^
+     }^
+}^ | "%JAVA_HOME%\bin\java" -cp "%LIB%" -Dlog4j.configurationFile="%BIN%\log4j2.xml" "org.xbib.tools.Runner" "org.xbib.tools.JDBCImporter"
+
+
+
+
+

@@ -1,0 +1,183 @@
+
+访问地址 192.168.21:9200/_plugin/head/
+
+
+
+ID查询 GET
+
+http://192.168.21:9200/indexName/typeName/id
+
+
+
+
+复合查询的使用
+
+
+1.创建索引  POST
+
+http://192.168.21:9200/indexName
+
+
+2.创建别名
+
+http://192.168.21:9200/_aliases 
+
+
+{
+  "actions": [
+    {
+      "add": {
+        "alias": "fo_topic_post_index",
+        "index": "fo_topic_post_index_v3"
+      }
+    }
+  ]
+}
+
+3.别名切换
+
+http://192.168.21:9200/_aliases 
+
+{
+  "actions": [
+    {
+      "remove": {
+        "alias": "fo_topic_post_index",
+        "index": "fo_topic_post_index_v2"
+      }
+    },
+    {
+      "add": {
+        "alias": "fo_topic_post_index",
+        "index": "fo_topic_post_index_v3"
+      }
+    }
+  ]
+}
+
+4.添加mapping 
+
+http://192.168.21:9200/index/type/_mapping
+
+
+{
+  "type": {
+    "_all": {
+      "analyzer": "ik_smart",
+      "search_analyzer": "ik_smart",
+      "term_vector": "no",
+      "store": "false"
+    },
+    "properties": {
+      "title": {
+        "type": "string",
+        "store": "no",
+        "term_vector": "with_positions_offsets",
+        "analyzer": "ik_smart",
+        "search_analyzer": "ik_smart",
+        "include_in_all": "true",
+        "boost": 8
+      },
+      "content": {
+        "type": "string",
+        "store": "no",
+        "term_vector": "with_positions_offsets",
+        "analyzer": "ik_smart",
+        "search_analyzer": "ik_smart",
+        "include_in_all": "true",
+        "boost": 8
+      }
+    }
+  }
+}
+
+
+备注 ： ik_smart 和 ik 的区别 ik_smart 颗粒度 > ik
+
+6.普通查询
+
+http://192.168.21:9200/index/type/_search
+
+
+{
+  "query": {
+    "bool": {
+      "must": {
+        "query_string": {
+          "query": "今天天气不错"
+        }
+      }
+    }
+  }
+}
+
+
+
+7.分页普通查询
+
+http://192.168.21:9200/index/type/_search
+
+{
+  "from": 0,
+  "size": 10,
+  "query": {
+    "query_string": {
+      "default_field": "content",
+      "query": "今天天气不错"
+    }
+  }
+}
+
+
+
+8.排序分页普通查询
+
+http://192.168.21:9200/index/type/_search
+
+{
+  "sort": [
+    {
+      "_score": {
+        "order": "desc"
+      },
+      "id": {
+        "order": "asc"
+      }
+    }
+  ],
+  "query": {
+    "query_string": {
+      "default_field": "content",
+      "query": "今天天气不错"
+    }
+  }
+}
+
+
+9.联合查询　and 
+
+http://192.168.21:9200/index/type/_search
+
+
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "match_phrase": {
+            "content": "今天天气不错"
+          }
+        },
+        {
+          "match_phrase": {
+            "content": "心情也好"
+          }
+        }
+      ]
+    }
+  }
+}
+
+10 其他参考
+
+http://www.cnblogs.com/xing901022/p/4967796.html

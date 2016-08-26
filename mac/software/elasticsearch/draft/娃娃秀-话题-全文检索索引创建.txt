@@ -1,0 +1,128 @@
+
+
+创建索引 POST
+
+http://localhost:9200/childrecord
+
+创建_mapping POST
+
+http://localhost:9200/childrecord/childrecord/_mapping
+
+{
+  "childrecord": {
+    "_all": {
+      "analyzer": "ik",
+      "search_analyzer": "ik",
+      "term_vector": "no",
+      "store": "false"
+    },
+    "properties": {
+      "content": {
+        "type": "string",
+        "store": "no",
+        "term_vector": "with_positions_offsets",
+        "analyzer": "ik",
+        "search_analyzer": "ik",
+        "include_in_all": "true",
+        "boost": 8
+      }
+    }
+  }
+}
+
+
+http://localhost:9200/topic
+http://localhost:9200/topic/topic/_mapping
+
+{
+  "topic": {
+    "_all": {
+      "analyzer": "ik",
+      "search_analyzer": "ik",
+      "term_vector": "no",
+      "store": "false"
+    },
+    "properties": {
+      "title": {
+        "type": "string",
+        "store": "no",
+        "term_vector": "with_positions_offsets",
+        "analyzer": "ik",
+        "search_analyzer": "ik",
+        "include_in_all": "true",
+        "boost": 8
+      },
+      "content": {
+        "type": "string",
+        "store": "no",
+        "term_vector": "with_positions_offsets",
+        "analyzer": "ik",
+        "search_analyzer": "ik",
+        "include_in_all": "true",
+        "boost": 8
+      }
+    }
+  }
+}
+
+
+
+
+http://localhost:9200/user
+http://localhost:9200/user/user/_mapping
+
+{
+  "user": {
+    "_all": {
+      "analyzer": "ik",
+      "search_analyzer": "ik",
+      "term_vector": "no",
+      "store": "false"
+    },
+    "properties": {
+      "display_name": {
+        "type": "string",
+        "store": "no",
+        "term_vector": "with_positions_offsets",
+        "analyzer": "ik",
+        "search_analyzer": "ik",
+        "include_in_all": "true",
+        "boost": 8
+      }
+    }
+  }
+}
+
+
+
+
+http://localhost:9200/child
+http://localhost:9200/child/child/_mapping
+
+
+{
+  "child": {
+    "_all": {
+      "analyzer": "ik",
+      "search_analyzer": "ik",
+      "term_vector": "no",
+      "store": "false"
+    },
+    "properties": {
+      "display_name": {
+        "type": "string",
+        "store": "no",
+        "term_vector": "with_positions_offsets",
+        "analyzer": "ik",
+        "search_analyzer": "ik",
+        "include_in_all": "true",
+        "boost": 8
+      }
+    }
+  }
+}
+
+
+
+
+

@@ -1,0 +1,103 @@
+
+软件依赖：
+
+
+搜索引擎：Elasticsearch 2.3.3    https://www.elastic.co/downloads/elasticsearch
+
+JDBC导入工具：Elasticsearch-jdbc-2.3.3.0​   https://github.com/jprante/elasticsearch-jdbc​
+
+中文分词器：Elasticsearch-analysis-ik      https://github.com/medcl/elasticsearch-analysis-ik​  项目源代码
+
+Elasticsearch 界面​管理工具：​Elasticsearch-head  https://github.com/mobz/elasticsearch-head​
+
+Elasticsearch 数据分析工具：​Kibana  https://www.elastic.co/downloads/kibana​
+
+
+
+环境依赖：Java 7+
+
+
+解压即安装：
+
+1.解压  Elasticsearch 压缩包
+
+2.修改  elasticsearch-2.3.3\config\elasticsearch.yml 配置文件
+  
+   #集群名称
+   cluster.name: wawatest   局域网内的相同名称的Elasticsearch会自动发现
+   #节点名称
+   node.name: wawatest-node
+   #网络地址-1
+   network.host: 192.168.1.21
+   #网络地址-2
+   network.bind_host: 192.168.1.21
+   network.publish_host: 192.168.1.21
+   #http访问端口
+   http.port: 9200
+   #数据存储端口
+   transport.tcp.port: 9300
+   #ik中文分词
+   index.analysis.analyzer.ik.type : 'ik'
+   index.analysis.analyzer.default.type : 'ik'
+   index.mapper.dynamic : true
+   #数据路径
+   #path.data: /path/to/data  
+   #日志路径
+   #path.logs: /path/to/logs
+   
+   备注：网络地址-1 和 网络地址-2 不可同时存在 
+   
+3.解压 ​Elasticsearch-head，Elasticsearch-analysis-ik
+
+    新建 
+    \elasticsearch-2.3.3\plugins\head
+	\elasticsearch-2.3.3\plugins\ik
+	
+	将 Elasticsearch-head 中的内容解压到 \elasticsearch-2.3.3\plugins\head
+	将 Elasticsearch-analysis-ik 中的内容解压到 \elasticsearch-2.3.3\plugins\ik
+	
+	备注：默认无需修改任何文件
+	
+4.启动	\elasticsearch-2.3.3\bin
+
+   启动 elasticsearch
+   后台启动 elasticsearch -d  
+   
+   该目录下的 elasticsearch.in.sh 修改java的使用内存
+   
+
+5.测试访问​Elasticsearch   
+
+   http://192.168.1.21:9200/
+   
+   返回数据 
+   
+   {
+	  "name" : "wawatest-node1",
+	  "cluster_name" : "wawatest",
+	  "version" : {
+		"number" : "2.3.3",
+		"build_hash" : "218bdf10790eef486ff2c41a3df5cfa32dadcfde",
+		"build_timestamp" : "2016-05-17T15:40:04Z",
+		"build_snapshot" : false,
+		"lucene_version" : "5.5.0"
+	  },
+	  "tagline" : "You Know, for Search"
+  }
+
+
+6.测试访问​Elasticsearch-head 
+
+  http://192.168.1.21:9200/_plugin/head/
+  
+  返回 H5 界面
+
+
+7.测试 Elasticsearch-analysis-ik （将使用其他文档介绍），在 elasticsearch 启动时会出现加载插件的日志输出 
+
+
+
+
+
+	
+	
