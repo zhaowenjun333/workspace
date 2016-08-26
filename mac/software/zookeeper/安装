@@ -1,0 +1,24 @@
+http://zookeeper.apache.org/releases.html
+
+1.zookeeper-3.4.8.tar.gz
+
+2.tar -zxf zookeeper-3.4.8.tar.gz
+
+3.cp zookeeper-3.4.8 /workspace/
+
+4.cd /workspace/zookeeper-3.4.8/conf 
+
+5.cp zoo_sample.cfg zoo.cfg
+
+6.cd /workspace/zookeeper-3.4.8/bin
+
+7. ./zkServer.sh start
+
+Using config: /workspace/zookeeper-3.4.8/bin/../conf/zoo.cfg
+Starting zookeeper ... STARTED
+
+8.  ./zkServer.sh stop
+Using config: /workspace/zookeeper-3.4.8/bin/../conf/zoo.cfg
+Stopping zookeeper ... STOPPED
+
+9../zkCli.sh -server 127.0.0.1:2181
