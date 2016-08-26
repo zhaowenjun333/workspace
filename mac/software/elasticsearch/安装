@@ -1,0 +1,44 @@
+https://www.elastic.co/downloads/elasticsearch
+
+1.elasticsearch-2.3.5.zip
+
+2.tar -zxf elasticsearch-2.3.5.zip
+
+3. mv elasticsearch-2.3.5 /workspace/
+
+4. cd /workspace/elasticsearch-2.3.5/config
+
+5.vi elasticsearch.yml
+
+cluster.name: my-application
+
+path.data: /workspace/data/elasticsearch/data
+
+path.logs: /workspace/data/elasticsearch/log
+
+network.host: 127.0.0.1
+
+http.port: 9200
+
+
+6.cd /workspace/elasticsearch-2.3.5/bin
+
+7. ./elasticsearch -d
+
+8.curl -X GET http://localhost:9200/
+
+{
+  "name" : "Rock",
+  "cluster_name" : "my-application",
+  "version" : {
+    "number" : "2.3.5",
+    "build_hash" : "90f439ff60a3c0f497f91663701e64ccd01edbb4",
+    "build_timestamp" : "2016-07-27T10:36:52Z",
+    "build_snapshot" : false,
+    "lucene_version" : "5.5.0"
+  },
+  "tagline" : "You Know, for Search"
+}
+
+
+
