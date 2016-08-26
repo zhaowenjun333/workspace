@@ -1,0 +1,14 @@
+
+
+1.nginx -s signal
+
+
+stop — fast shutdown
+quit — graceful shutdown
+reload — reloading the configuration file
+reopen — reopening the log files
+
+
+2.ps -ax | grep nginx
+
+3.kill -s QUIT 1628

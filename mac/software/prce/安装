@@ -1,0 +1,6 @@
+1. pcre-8.39.zip http://www.pcre.org/ 
+2. tar -zxf pcre-8.39.zip
+3. cd /Users/Arvin/Downloads/pcre-8.39
+4 sudo ./configure --prefix=/usr/local
+5.sudo make
+6.sudo make install

@@ -1,0 +1,18 @@
+Configuration summary
+  + using PCRE library: /workspace/pcre2
+  + OpenSSL library is not used
+  + using system zlib library
+
+  nginx path prefix: "/workspace/nginx"
+  nginx binary file: "/workspace/nginx/sbin/nginx"
+  nginx modules path: "/workspace/nginx/modules"
+  nginx configuration prefix: "/workspace/nginx/conf"
+  nginx configuration file: "/workspace/nginx/conf/nginx.conf"
+  nginx pid file: "/workspace/nginx/logs/nginx.pid"
+  nginx error log file: "/workspace/nginx/logs/error.log"
+  nginx http access log file: "/workspace/nginx/logs/access.log"
+  nginx http client request body temporary files: "client_body_temp"
+  nginx http proxy temporary files: "proxy_temp"
+  nginx http fastcgi temporary files: "fastcgi_temp"
+  nginx http uwsgi temporary files: "uwsgi_temp"
+  nginx http scgi temporary files: "scgi_temp"

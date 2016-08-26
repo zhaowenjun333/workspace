@@ -1,0 +1,29 @@
+
+http://nginx.org/en/download.html
+
+
+1.下载 nginx-1.11.3 
+
+2.cd /Users/Arvin/Downloads/
+
+3.tar -zxf nginx-1.11.3.tar.gz 
+
+4.sudo mkdir /workspace/nginx
+
+5.cd /Users/Arvin/Downloads/nginx-1.11.3
+
+6.sudo ./configure --prefix=/workspace/nginx
+
+  ./configure: error: the HTTP rewrite module requires the PCRE library.
+  
+  install prce (pcre-8.39 --must be pcre2)
+
+7. sudo ./configure --prefix=/workspace/nginx  
+
+8. sudo make 
+
+9. sudo make install
+
+10. cd /workspace/nginx/sbin
+
+11. sudo ./nginx
