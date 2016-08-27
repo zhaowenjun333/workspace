@@ -1,0 +1,19 @@
+https://www.elastic.co/downloads/kibana
+
+
+kibana-4.5.4-darwin-x64.tar.gz
+
+
+1.copy & unzip file  to your  folder: workspace/kibana-4.5.4-darwin-x64
+
+2.vi workspace/kibana-4.5.4-darwin-x64/config/kibana.yml 
+
+server.port: 5601
+
+server.host: "127.0.0.1"
+
+elasticsearch.url: "http://127.0.0.1:9200"
+
+3. bin/kibana 
+
+5.http://127.0.0.1:5601/app/kibana
