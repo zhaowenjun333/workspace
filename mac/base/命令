@@ -4,4 +4,8 @@
 
 open -n Eclipse.app
 
+2.端口
 
+lsof -i tcp:8080
+
+3.
