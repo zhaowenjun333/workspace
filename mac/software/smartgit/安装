@@ -1,0 +1,7 @@
+http://www.syntevo.com/smartgit/download
+
+破解
+
+cd ~/Library/Preferences/SmartGit/  cd /Users/Arvin/Library/Preferences/SmartGit/7.1
+
+rm settings.xml
