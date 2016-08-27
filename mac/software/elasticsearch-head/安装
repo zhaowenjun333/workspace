@@ -1,0 +1,15 @@
+
+http://mobz.github.io/elasticsearch-head/
+
+1./workspace/elasticsearch-2.3.5/bin
+
+2../plugin install mobz/elasticsearch-head
+
+Installing mobz/elasticsearch-head...
+Trying https://github.com/mobz/elasticsearch-head/archive/master.zip ...
+Downloading ............................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................DONE
+Verifying https://github.com/mobz/elasticsearch-head/archive/master.zip checksums if available ...
+NOTE: Unable to verify checksum for downloaded plugin (unable to find .sha1 or .md5 file to verify)
+Installed head into /workspace/elasticsearch-2.3.5/plugins/head
+
+3.http://127.0.0.1:9200/_plugin/head/
