@@ -8,7 +8,7 @@ http://redis.io/download
 
 
 # cd redis-3.0.2
-# src/redis-server
+# src/redis-server  ./redis-server &
 
 
 
