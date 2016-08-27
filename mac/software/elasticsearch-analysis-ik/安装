@@ -1,13 +1,4 @@
-https://github.com/medcl/elasticsearch-analysis-ik
+https://github.com/medcl/elasticsearch-analysis-ik/releases
 
-1.git clone https://github.com/medcl/elasticsearch-analysis-ik
-
-2.mvn clean
-
-3.mvn compile
-
-4.mvn package
-
-5.copy & unzip file #{project_path}/elasticsearch-analysis-ik/target/releases/elasticsearch-analysis-ik-*.zip to your elasticsearch's folder: plugins/ik
-
+1.copy & unzip file #{project_path}/elasticsearch-analysis-ik/target/releases/elasticsearch-analysis-ik-*.zip to your elasticsearch's folder: plugins/ik
 
