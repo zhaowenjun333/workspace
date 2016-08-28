@@ -1,7 +1,14 @@
 http://www.syntevo.com/smartgit/download
 
-破解
+1.破解
 
 cd ~/Library/Preferences/SmartGit/  cd /Users/Arvin/Library/Preferences/SmartGit/7.1
 
 rm settings.xml
+
+
+2.reset license
+
+/Users/Arvin/Library/Preferences
+
+删除 SmartGit 文件夹重现配置
