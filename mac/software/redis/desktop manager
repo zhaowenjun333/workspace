@@ -1,0 +1,9 @@
+http://docs.redisdesktop.com/en/latest/install/#build-from-source
+
+1.get source code
+
+git clone --recursive https://github.com/uglide/RedisDesktopManager.git -b 0.8.0 rdm
+
+2.mkdir /workspace/redis-desktop-manager
+
+3.
