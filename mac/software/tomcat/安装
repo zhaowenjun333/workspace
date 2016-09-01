@@ -1,0 +1,7 @@
+http://tomcat.apache.org/download-80.cgi
+
+1. tar -zxf apache-tomcat-8.0.36.zip
+
+2.chmod u+x *.sh (加权)
+
+3.bin/startup.sh
