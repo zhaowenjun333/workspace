@@ -1,0 +1,30 @@
+1.查询时间区间内符合条件的数据 如：7:55-8:10，8:10-8:30
+
+数据库存储数据字段为：
+
+ 小时 checkin_hour  
+ 分钟 checkin_minute
+
+
+(
+（t.checkin_hour =  #{startHour,jdbcType=SMALLINT} 
+and t.checkin_minute &gt;= #{startMin,jdbcType=SMALLINT} ）
+or t.checkin_hour &gt; #{startHour,jdbcType=SMALLINT}
+)
+
+and
+
+(
+（t.checkin_hour =  #{endHour,jdbcType=SMALLINT} 
+and t.checkin_minute &lt; #{endMin,jdbcType=SMALLINT} ）
+or t.checkin_hour &lt; #{endHour,jdbcType=SMALLINT}
+)
+
+
+
+
+
+
+
+
+
