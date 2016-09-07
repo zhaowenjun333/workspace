@@ -17,4 +17,13 @@ IdentityFile ~/.ssh/id_rsa.git
 
 
 
+vi .ssh/config
 
+Host 192.168.1.200
+User root
+
+Host 112.126.71.129
+User root
+
+Host test.wawachina.cn
+User root
