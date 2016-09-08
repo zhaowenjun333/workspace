@@ -1,0 +1,12 @@
+
+1.eclipse中使用maven插件的时候
+
+-Dmaven.multiModuleProjectDirectory system propery is not set. Check $M2_HOME environment variable and mvn script match.
+ 
+直接的解决方法：使用低版本的maven
+ 
+可以设一个环境变量M2_HOME指向你的maven安装目录
+M2_HOME=D:\Apps\apache-maven-3.3.1
+然后在Window->Preference->Java->Installed JREs->Edit
+在Default VM arguments中设置
+-Dmaven.multiModuleProjectDirectory=$M2_HOME

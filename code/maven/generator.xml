@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<generatorConfiguration>
+	<!-- 引入配置文件 --> 
+	<properties resource="init.properties"/>  
+	<!-- 数据库驱动包位置：本地绝对路径 -->
+  	<!--<classPathEntry location="D:\Java\mvn-repo\repository\mysql\mysql-connector-java\5.1.21\mysql-connector-java-5.1.21.jar" /> 
+	<classPathEntry location="/Users/ndai/work/code/lib-repo/repository/org/postgresql/postgresql/9.4-1201-jdbc4/postgresql-9.4-1201-jdbc4.jar" /> 
+	-->
+	<!-- -数据库驱动包位置动态从pom.xml文件中读取 -->
+ 	<classPathEntry location="${local_maven_repo_path}/org/postgresql/postgresql/9.4-1201-jdbc4/postgresql-9.4-1201-jdbc4.jar" /> 
+	
+	<context id="DB2Tables" targetRuntime="MyBatis3">
+	   <plugin type="wawa.hedone.mybatis.generator.HedoneGenerator"></plugin>
+		<commentGenerator>
+			<property name="suppressAllComments" value="true" />
+		</commentGenerator>
+		<!-- 数据库链接URL、用户名、密码 -->
+		 <jdbcConnection driverClass="org.postgresql.Driver" connectionURL="jdbc:postgresql://112.126.71.129/wwxiu" userId="${connection.uid}" password="${connection.password}">
+		</jdbcConnection>
+		<javaTypeResolver>
+			<property name="forceBigDecimals" value="false" />
+		</javaTypeResolver>
+		<!-- 生成模型的包名和位置 -->
+		<javaModelGenerator targetPackage="out" targetProject="target">
+			<property name="enableSubPackages" value="true" />
+			<property name="trimStrings" value="true" />
+		</javaModelGenerator>
+		<!-- 生成的映射文件包名和位置 -->
+		<sqlMapGenerator targetPackage="out" targetProject="target">
+			<property name="enableSubPackages" value="true" />
+		</sqlMapGenerator>
+		<!-- 生成DAO的包名和位置 -->
+		<javaClientGenerator type="XMLMAPPER" targetPackage="out" targetProject="target">
+			<property name="enableSubPackages" value="true" />
+		</javaClientGenerator>
+		
+	<!-- 要生成那些表(更改tableName和domainObjectName就可以) -->
+        <table tableName="fo_child_record_label" domainObjectName="ChildRecordLabel"  enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false" >
+          <generatedKey column="id" sqlStatement="JDBC"/>
+        </table>
+	</context>
+</generatorConfiguration>
