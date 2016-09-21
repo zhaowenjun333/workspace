@@ -1,0 +1,10 @@
+1。like 使用
+
+全
+like '%'||#{label,jdbcType=VARCHAR}||'%'
+
+已whatever结尾
+like '%'||#{label,jdbcType=VARCHAR}||''
+
+已whatever开始
+like ''||#{label,jdbcType=VARCHAR}||'%'
