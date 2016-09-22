@@ -1,0 +1,9 @@
+
+1.解析关于方法中返回类型为范型
+
+Class<?> clz = Class.forName(className);
+			
+for(Method method1 : clz.getMethods() )
+System.out.println(method1.getReturnType().getTypeParameters()[0].getBounds()[0].getTypeName());
+
+

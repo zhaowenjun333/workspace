@@ -1,0 +1,15 @@
+
+1.定义
+
+@Target({ElementType.TYPE, ElementType.METHOD})
+@Retention(RetentionPolicy.RUNTIME)
+@Documented
+public @interface StreamContentEntity {
+	
+	String value();
+	
+}
+
+2.使用
+
+通过java的反射机制 获取 getAnnotations
