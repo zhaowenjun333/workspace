@@ -1,0 +1,28 @@
+1.df -TH 
+2.df -h
+
+　Linux添加新硬盘自动挂载硬盘的具体步骤
+　　
+　　1.插入新硬盘，启动Linux服务器，使用fdisk -l  查看硬盘
+
+　　#fdisk -l
+　　
+　　Disk /dev/sdb: 1000.2 GB, 1000204886016 bytes
+　　
+　　2.格式化硬盘
+　　
+　　#mkfs -t ext4 /dev/sdb
+　　
+　　3.挂载硬盘 
+　　
+　　#mount 硬盘地址  要挂载的地址
+　　
+　　#mount /dev/sdb /media/imgs
+　　
+　　4.实现系统重启后自动挂载该分区
+　　
+　　#vi  /etc/fstab
+　　
+　　在最后一行添加
+　　
+　　/dev/sdb  /media/imgs                  ext4    defaults        1   2
