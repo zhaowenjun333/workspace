@@ -1,0 +1,23 @@
+
+java.net.UnknownHostException: MacCris: MacCris: nodename nor servname provided, or not known
+
+To solve this:
+
+Step 1 – Open the Terminal
+
+Step 2 – Go to the host file
+
+$ sudo nano /private/etc/hosts
+Type your user password when prompted.
+
+Step 3 – Edit the hosts file
+
+127.0.0.1 localhost
+127.0.0.1 MacCris
+Of course you will replace MacCris with your hostname.
+
+Step 4 – Save the hosts file
+
+When done editing the hosts file, press Control+x to save the file.
+
+Have fun !
