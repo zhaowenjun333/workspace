@@ -1,0 +1,16 @@
+
+http://blog.csdn.net/is_zhoufeng/article/details/8112199
+
+低位 - 高位
+
+
+public static void main(String args[]){
+		int i = 0b0100010010101001010010100;
+		int h = 2;
+		int k = 1 << h;
+		System.out.println(Integer.toBinaryString(i));
+		System.out.println(Integer.toBinaryString(k));
+		int q =  k & i;
+		System.out.println(Integer.toBinaryString(q));
+		System.out.println(q);
+}
