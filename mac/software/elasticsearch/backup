@@ -1,4 +1,6 @@
 
+#######备份########
+
 # elasticsearch.yml 
 
 path.repo:["/opt/wwxiu/elasticsearch/backup"]
@@ -37,3 +39,38 @@ GET http://test.wawachina.cn:90/_snapshot/backup/snapshot_1
 
 #状态
 GET http://test.wawachina.cn:90/_snapshot/backup/snapshot_1/_status
+
+
+
+
+
+######恢复######
+
+两个elastic copy
+
+
+# 打包已有数据的repo中的 /opt/wwxiu/elasticsearch/backup 快照
+
+tar -rf backup.tar  ./*
+
+
+# 创建仓库
+
+PUT http://test.wawachina.cn:90/_snapshot/backup
+
+
+{
+    "type": "fs", 
+    "settings": {
+        "location": "/opt/wwxiu/elasticsearch/backup/" 
+    }
+}
+
+#将 backup.tar 拷贝到目标的 eleasticsearch 的repo 下
+
+
+
+#执行恢复
+
+
+POST http://127.0.0.1:9200/_snapshot/backup/snapshot_1/_restore?wait_for_completion=true
