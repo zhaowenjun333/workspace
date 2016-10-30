@@ -1,0 +1,16 @@
+
+###############################################################################
+
+https://github.com/libssh2/libssh2/issues/17
+
+Gives me:
+....
+configure: error: No crypto library found!
+Try --with-libssl-prefix=PATH
+or --with-libgcrypt-prefix=PATH
+
+
+CPPFLAGS="-I/usr/local/Cellar/openssl/1.0.2j/lib/" LDFLAGS="-L/usr/local/Cellar/openssl/1.0.2j/lib/" ../libssh2-1.7.0/configure --prefix="/usr/local/Cellar/libssh2/1.7.0"
+
+###############################################################################
+
