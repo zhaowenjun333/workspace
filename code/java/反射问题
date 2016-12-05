@@ -7,3 +7,12 @@ for(Method method1 : clz.getMethods() )
 System.out.println(method1.getReturnType().getTypeParameters()[0].getBounds()[0].getTypeName());
 
 
+
+
+2.java＿通过反射获得泛型的实际类型参数
+
+Method applyMethod=Test.class.getMethod("applyVector", Vector.class);  
+Type[] types=applyMethod.getGenericParameterTypes();  
+ParameterizedType pType=(ParameterizedType)types[0];  
+System.out.println(pType.getActualTypeArguments()[0]);  
+System.out.println(pType.getRawType());  
