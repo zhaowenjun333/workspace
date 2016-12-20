@@ -1,0 +1,24 @@
+
+#log_format  main  '$remote_addr - $remote_user [$time_local] "$request" '
+    #                  '$status $body_bytes_sent "$http_referer" '
+    #                  '"$http_user_agent" "$http_x_forwarded_for"';
+
+127.0.0.1 - - [19/Dec/2016:20:54:58 +0800] "GET /system/feedbackchat/count.shtml HTTP/1.1" 499 0 "http://127.0.0.1/system/index.shtml" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.95 Safari/537.36"
+
+
+
+ log_format logstash_json '{"@timestamp":"$time_iso8601",'
+                '"host":"$server_addr",'
+                '"clientip":"$remote_addr",'
+                '"size":$body_bytes_sent,'
+                '"requesttime":$request_time,'
+                '"upstreamtime":"$upstream_response_time",'
+                '"upstreamhost":"$upstream_addr",'
+                '"http_host":"$host",'
+                '"url":"$uri",'
+                '"xff":"$http_x_forwarded_for",'
+                '"referer":"$http_referer",'
+                '"agent":"$http_user_agent",'
+                '"status":"$status"}';
+
+    access_log  logs/access.log  logstash_json;

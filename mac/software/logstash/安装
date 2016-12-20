@@ -1,0 +1,35 @@
+官网下载https://www.elastic.co/
+
+1.doc
+
+ https://www.elastic.co/guide/en/kibana/current/index.html
+
+ 
+2.自定义 first-pipeline.conf （logstash  home 目录）
+
+# The # character at the beginning of a line indicates a comment. Use
+# comments to describe your configuration.
+input {
+   beats {
+        port => "5043"
+   }
+}
+# The filter part of this file is commented out to indicate that it is
+# optional.
+# filter {
+#
+# }
+output {
+  stdout { codec => rubydebug }
+}
+
+
+3.验证
+
+bin/logstash -f first-pipeline.conf --config.test_and_exit
+
+4.启动
+
+bin/logstash -f first-pipeline.conf --config.reload.automatic
+
+bin/logstash -f first-pipeline.conf --config.reload.automatic &
