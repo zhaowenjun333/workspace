@@ -1,3 +1,6 @@
 netstat -an|grep 5601
 
 lsof -i:5601
+
+elasticsearch.username: "kibana_admin"
+elasticsearch.password: "wawa2016"

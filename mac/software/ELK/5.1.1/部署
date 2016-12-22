@@ -1,0 +1,79 @@
+
+下载文件：解压及安装
+
+filebeat-5.1.1-linux-x86_64.tar.gz
+kibana-5.1.1-linux-x86_64.tar.gz
+logstash-5.1.1.zip
+x-pack-5.1.1.zip
+elasticsearche 5.1.1
+
+
+
+
+2.vi elasticsearch.yml 
+
+action.auto_create_index: .security,.monitoring*,.watches,.triggered_watches,.watcher-history*
+
+1.bin/elasticsearch-plugin install file:/opt/wwxiu/hedone/x-pack-5.1.1.zip 
+
+3.bin/elasticsearch -d 
+
+4.bin/kibana-plugin install file:/opt/wwxiu/hedone/x-pack-5.1.1.zip 
+
+5.bin/kibana -d 
+
+7.将hedone-pipeline.conf copy logstash 的安装目录下
+
+
+8.修改密码
+
+curl -XPUT -u elastic '10.173.35.136:9201/_xpack/security/user/elastic/_password' -d '{
+  "password" : "wawa2016"
+}'
+
+curl -XPUT -u elastic '10.173.35.136:9201/_xpack/security/user/kibana/_password' -d '{
+  "password" : "wawa2016"
+}'
+
+8.logstash启动
+ 
+bin/logstash -f hedone-pipeline.conf  &
+
+
+9.vi filebeat.yml
+
+paths:
+     - /opt/wwxiu/nginx/logs/access.log
+     
+     
+ #----------------------------- Logstash output --------------------------------
+ 
+ output.logstash:
+  # The Logstash hosts
+  hosts: ["10.173.35.136:5043"]    
+  
+  
+  
+logging.level: error  
+
+ignore_older: 2h
+
+scan_frequency: 3s  
+
+
+
+10.启动 ./filebeat &
+
+
+
+11.vi kibana.yml 
+
+server.host: "112.126.71.129"
+
+elasticsearch.url: "http://10.173.35.136:9200"
+
+
+12.启动 ./kibana &
+
+
+
