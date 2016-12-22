@@ -7,7 +7,7 @@
 
 
 
- log_format logstash_json '{"@timestamp":"$time_iso8601",'
+  log_format logstash_json '{"@timestamp":"$time_iso8601",'
                 '"host":"$server_addr",'
                 '"clientip":"$remote_addr",'
                 '"size":$body_bytes_sent,'
@@ -16,9 +16,11 @@
                 '"upstreamhost":"$upstream_addr",'
                 '"http_host":"$host",'
                 '"url":"$uri",'
+                '"request":"$request",'
                 '"xff":"$http_x_forwarded_for",'
                 '"referer":"$http_referer",'
                 '"agent":"$http_user_agent",'
+               '"remote_user":"$remote_user",'
                 '"status":"$status"}';
 
     access_log  logs/access.log  logstash_json;

@@ -1,0 +1,3 @@
+netstat -an|grep 5601
+
+lsof -i:5601
