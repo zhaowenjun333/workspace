@@ -1,0 +1,74 @@
+{
+  "template" : "hedone-*",
+  "settings" : {
+    "index.refresh_interval" : "5s"
+  },
+  "mappings" : {
+    "_default_" : {
+       "_all" : {"enabled" : true},
+       "dynamic_templates" : [ {
+         "string_fields" : {
+           "match" : "*",
+           "match_mapping_type" : "string",
+           "mapping" : {
+             "type" : "string", "index" : "analyzed", "omit_norms" : true,
+               "fields" : {
+                 "raw" : { "type": "string", "index" : "not_analyzed", "ignore_above" : 256, "doc_values": true }
+               }
+           }
+         }
+       } ],
+       "properties" : {
+         "@version": { "type": "string", "index": "not_analyzed" },
+         "message": { "type": "string", "index": "not_analyzed" },
+         "@timestamp": { "type": "date", "index": "not_analyzed", "doc_values": true, "format": "dateOptionalTime" },
+         "xff": {
+            "type": "ip"
+         },
+         "geoip"  : {
+           "type" : "object",
+             "dynamic": true,
+             "properties" : {
+               "location" : { "type" : "geo_point" }
+             }
+         },
+         "limit": {
+            "type": "integer"
+         },
+         "minUpdateTime": {
+            "type": "long"
+          },
+          "minWeekTime": {
+            "type": "long"
+          },
+          "offset": {
+            "type": "long"
+          },
+          "pageSize": {
+            "type": "long"
+          },
+          "requesttime": {
+            "type": "float"
+          },
+          "schoolId": {
+            "type": "long"
+          },
+          "size": {
+            "type": "integer"
+          },
+          "status": {
+            "type": "integer"
+          },
+          "syncTime": {
+            "type": "long"
+          },
+          "topicGroupId": {
+            "type": "long"
+          },
+          "weekTime": {
+            "type": "long"
+          }
+       }
+    }
+  }
+}

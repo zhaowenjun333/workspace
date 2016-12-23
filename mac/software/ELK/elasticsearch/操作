@@ -1,0 +1,81 @@
+
+
+curl --user elastic:wawa2016 -X GET http://10.173.35.136:9201?pretty=true
+
+
+curl --user elastic:wawa2016 -X GET http://10.173.35.136:9201/hedone-log/log/_mapping?pretty=true
+
+curl --user elastic:wawa2016 -XPUT 'http://10.173.35.136:9201/hedone-log/'
+
+curl --user elastic:wawa2016 -X GET http://10.173.35.136:9201/hedone-log?pretty=true
+
+
+curl --user elastic:wawa2016 -X DELETE 'http://10.173.35.136:9201/hedone-log/'
+
+
+curl --user elastic:wawa2016 -XPUT 'http://10.173.35.136:9201/hedone-log/log/_mapping' -d '
+{
+      "log": {
+        "properties": {
+          "@timestamp": {
+            "type": "date"
+          },
+          "geoip": {
+            "properties": {
+              "ip": {
+                "type": "ip"
+              },
+              "latitude": {
+                "type": "float"
+              },
+              "location": {
+                "type": "geo_point"
+              },
+              "longitude": {
+                "type": "float"
+              }
+            }
+          },
+          "limit": {
+            "type": "integer"
+          },
+          "minUpdateTime": {
+            "type": "long"
+          },
+          "minWeekTime": {
+            "type": "long"
+          },
+          "offset": {
+            "type": "long"
+          },
+          "pageSize": {
+            "type": "long"
+          },
+          "requesttime": {
+            "type": "float"
+          },
+          "schoolId": {
+            "type": "long"
+          },
+          "size": {
+            "type": "integer"
+          },
+          "status": {
+            "type": "integer"
+          },
+          "syncTime": {
+            "type": "long"
+          },
+          "topicGroupId": {
+            "type": "long"
+          },
+          "weekTime": {
+            "type": "long"
+          }
+        }
+      }
+}
+'
+
+
+curl --user elastic:wawa2016 -XPUT http://10.173.35.136:9201/_template/hedone_log -d '@/opt/wwxiu/logstash-5.1.1/hedone-dynamic_templates.json'
