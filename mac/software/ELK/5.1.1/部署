@@ -37,11 +37,13 @@ curl -XPUT -u elastic '10.173.35.136:9201/_xpack/security/user/kibana/_password'
 
 8.添加自定义模版  hedone-dynamic_templates.json (先手动添加index)
 
+curl --user elastic:wawa2016 -XPUT 'http://10.173.35.136:9201/hedone-ugcengin';
+
+curl --user elastic:wawa2016 -XPUT 'http://10.173.35.136:9201/hedone-system';
+
 curl --user elastic:wawa2016 -XPUT 'http://10.173.35.136:9201/hedone-user';
 
 curl --user elastic:wawa2016 -XPUT 'http://10.173.35.136:9201/hedone-school';
-
-curl --user elastic:wawa2016 -XPUT 'http://10.173.35.136:9201/hedone-ugcengin';
 
 curl --user elastic:wawa2016 -XPUT 'http://10.173.35.136:9201/hedone-search';
 
@@ -57,8 +59,29 @@ curl --user elastic:wawa2016 -XPUT 'http://10.173.35.136:9201/hedone-live';
 
 curl --user elastic:wawa2016 -XPUT 'http://10.173.35.136:9201/hedone-question';
 
-curl --user elastic:wawa2016 -XPUT 'http://10.173.35.136:9201/hedone-message';
+-----------
 
+curl --user elastic:wawa2016 -XDELETE 'http://10.173.35.136:9201/hedone-user';
+
+curl --user elastic:wawa2016 -XDELETE 'http://10.173.35.136:9201/hedone-school';
+
+curl --user elastic:wawa2016 -XDELETE 'http://10.173.35.136:9201/hedone-ugcengin';
+
+curl --user elastic:wawa2016 -XDELETE 'http://10.173.35.136:9201/hedone-search';
+
+curl --user elastic:wawa2016 -XDELETE 'http://10.173.35.136:9201/hedone-classsquare';
+
+curl --user elastic:wawa2016 -XDELETE 'http://10.173.35.136:9201/hedone-wwshow';
+
+curl --user elastic:wawa2016 -XDELETE 'http://10.173.35.136:9201/hedone-order';
+
+curl --user elastic:wawa2016 -XDELETE 'http://10.173.35.136:9201/hedone-topic';
+
+curl --user elastic:wawa2016 -XDELETE 'http://10.173.35.136:9201/hedone-live';
+
+curl --user elastic:wawa2016 -XDELETE 'http://10.173.35.136:9201/hedone-question';
+
+curl --user elastic:wawa2016 -XDELETE 'http://10.173.35.136:9201/hedone-system';
 
 curl --user elastic:wawa2016 -XPUT http://10.173.35.136:9201/_template/hedone_log -d '@/opt/wwxiu/logstash-5.1.1/hedone-dynamic_templates.json'
 
@@ -101,6 +124,4 @@ elasticsearch.url: "http://10.173.35.136:9200"
 
 
 12.启动 ./kibana &
-
-
 
