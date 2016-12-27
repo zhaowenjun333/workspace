@@ -21,7 +21,7 @@
        "properties" : {
          "@version": { "type": "string", "index": "not_analyzed" },
          "message": { "type": "string", "index": "not_analyzed" },
-         "xff": {
+         "locationip": {
             "type": "ip"
          },
          "geoip"  : {

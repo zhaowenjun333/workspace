@@ -1,3 +1,6 @@
 
 http://blog.csdn.net/xifeijian/article/details/50823494
 
+ruby {
+    code => "event.timestamp.time.localtime"
+}
