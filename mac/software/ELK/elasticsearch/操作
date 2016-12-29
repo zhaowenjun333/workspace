@@ -79,3 +79,7 @@ curl --user elastic:wawa2016 -XPUT 'http://10.173.35.136:9201/hedone-log/log/_ma
 
 
 curl --user elastic:wawa2016 -XPUT http://10.173.35.136:9201/_template/hedone_log -d '@/opt/wwxiu/logstash-5.1.1/hedone-dynamic_templates.json'
+
+
+
+curl --user elastic:wawa2016 -XGET 'http://10.173.35.136:9201/_cluster/health?pretty=true'
