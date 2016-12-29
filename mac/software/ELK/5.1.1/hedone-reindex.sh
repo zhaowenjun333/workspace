@@ -1,26 +1,27 @@
 #!/bin/sh  chmod 700
 
-curl --user elastic:wawa2016 -XDELETE 'http://10.173.35.136:9201/hedone-user-*';
+curl --user logstash:wawa2016 -XDELETE 'http://10.173.35.136:9201/hedone-user-${nDaysago}';
 
-curl --user elastic:wawa2016 -XDELETE 'http://10.173.35.136:9201/hedone-school-*';
+curl --user logstash:wawa2016 -XDELETE 'http://10.173.35.136:9201/hedone-school-${nDaysago}';
 
-curl --user elastic:wawa2016 -XDELETE 'http://10.173.35.136:9201/hedone-ugcengin-*';
+curl --user logstash:wawa2016 -XDELETE 'http://10.173.35.136:9201/hedone-ugcengin-${nDaysago}';
 
-curl --user elastic:wawa2016 -XDELETE 'http://10.173.35.136:9201/hedone-search-*';
+curl --user logstash:wawa2016 -XDELETE 'http://10.173.35.136:9201/hedone-search-${nDaysago}';
 
-curl --user elastic:wawa2016 -XDELETE 'http://10.173.35.136:9201/hedone-classsquare-*';
+curl --user logstash:wawa2016 -XDELETE 'http://10.173.35.136:9201/hedone-classsquare-${nDaysago}';
 
-curl --user elastic:wawa2016 -XDELETE 'http://10.173.35.136:9201/hedone-wwshow-*';
+curl --user logstash:wawa2016 -XDELETE 'http://10.173.35.136:9201/hedone-wwshow-${nDaysago}';
 
-curl --user elastic:wawa2016 -XDELETE 'http://10.173.35.136:9201/hedone-order-*';
+curl --user logstash:wawa2016 -XDELETE 'http://10.173.35.136:9201/hedone-order-${nDaysago}';
 
-curl --user elastic:wawa2016 -XDELETE 'http://10.173.35.136:9201/hedone-topic-*';
+curl --user logstash:wawa2016 -XDELETE 'http://10.173.35.136:9201/hedone-topic-${nDaysago}';
 
-curl --user elastic:wawa2016 -XDELETE 'http://10.173.35.136:9201/hedone-live-*';
+curl --user logstash:wawa2016 -XDELETE 'http://10.173.35.136:9201/hedone-live-${nDaysago}';
 
-curl --user elastic:wawa2016 -XDELETE 'http://10.173.35.136:9201/hedone-question-*';
+curl --user logstash:wawa2016 -XDELETE 'http://10.173.35.136:9201/hedone-question-${nDaysago}';
 
-curl --user elastic:wawa2016 -XDELETE 'http://10.173.35.136:9201/hedone-system-*';
+curl --user logstash:wawa2016 -XDELETE 'http://10.173.35.136:9201/hedone-system-${nDaysago}';
 
-curl --user elastic:wawa2016 -XDELETE 'http://10.173.35.136:9201/hedone-message-*';
+curl --user logstash:wawa2016 -XDELETE 'http://10.173.35.136:9201/hedone-message-${nDaysago}';
+
 
