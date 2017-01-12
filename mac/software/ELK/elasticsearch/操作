@@ -83,3 +83,6 @@ curl --user elastic:wawa2016 -XPUT http://10.173.35.136:9201/_template/hedone_lo
 
 
 curl --user elastic:wawa2016 -XGET 'http://10.173.35.136:9201/_cluster/health?pretty=true'
+
+
+curl --user elastic:wawa2016 -XGET 'http://10.173.35.136:9201/_xpack/license'
