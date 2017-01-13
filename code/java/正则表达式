@@ -1,0 +1,18 @@
+//详情参考http://blog.csdn.net/qiaqia609/article/details/11088101
+
+
+	private static List<Pattern> PATTERNS = new ArrayList<>();
+	
+	static {
+		//详情参考http://blog.csdn.net/qiaqia609/article/details/11088101
+		PATTERNS.add(Pattern.compile(String.valueOf("[`~!@#$%^&*()+=|{}':;',\\[\\].<>/?~！@#￥%……&*（）——+|{}【】‘；：”“’。，、？\\s+]")));
+	}
+	
+	public static boolean isSpecialChar(char code){
+		for (Pattern role : PATTERNS) {
+			if(role.matcher(String.valueOf(code)).matches()){
+				System.out.println("ddddddddddd");
+			}
+		}	
+		return false;
+	}

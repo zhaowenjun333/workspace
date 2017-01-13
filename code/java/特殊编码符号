@@ -1,0 +1,150 @@
+http://www.fuhao123.com/fuhao/4.shtml
+http://www.fhdq.net/
+
+
+㈠㈡㈢㈣㈤㈥㈦㈧㈨㈩
+㊀㊁㊂㊃㊄㊅㊆㊇㊈㊉
+ⅠⅡⅢⅣⅤⅥⅦⅧⅨⅩ
+❶❷❸❹❺❻❼❽❾❿
+①②③④⑤⑥⑦⑧⑨⑩⑪⑫⑬⑭⑮⑯⑰⑱⑲⑳
+⒈⒉⒊⒋⒌⒍⒎⒏⒐⒑⒒⒓⒔⒕⒖⒗⒘⒙⒚⒛
+⑴⑵⑶⑷⑸⑹⑺⑻⑼⑽⑾⑿⒀⒁⒂⒃⒄⒅⒆⒇
+
+
+
+
+
+package wawa.hedone.common.utils;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.regex.Pattern;
+
+public class CharacterCheckUtils{
+	
+	
+	private static List<Pattern> PATTERNS = new ArrayList<>();
+	
+	static {
+		//详情参考http://blog.csdn.net/qiaqia609/article/details/11088101
+		PATTERNS.add(Pattern.compile(String.valueOf("[`~!@#$%^&*()+=|{}':;',\\[\\].<>/?~！@#￥%……&*（）——+|{}【】‘；：”“’。，、？\\s+]")));
+	}
+	
+	public static boolean isSpecialChar(char code){
+		for (Pattern role : PATTERNS) {
+			if(role.matcher(String.valueOf(code)).matches()){
+				return true;
+			}
+		}	
+		return false;
+	}
+	
+	//㈠㈡㈢㈣㈤㈥㈦㈧㈨㈩
+	private static int c1_start = 12832;
+	private static int c1_end = 12841;
+	
+	//㊀㊁㊂㊃㊄㊅㊆㊇㊈㊉
+	private static int c2_start = 12928;
+	private static int c2_end = 12937;
+	
+	//ⅠⅡⅢⅣⅤⅥⅦⅧⅨⅩ
+	private static int c3_start = 8544;
+	private static int c3_end = 8553;
+	
+	//❶❷❸❹❺❻❼❽❾❿
+	private static int c4_start = 10102;
+	private static int c4_end = 10111;
+	
+	//①②③④⑤⑥⑦⑧⑨⑩⑪⑫⑬⑭⑮⑯⑰⑱⑲⑳
+	private static int c5_start = 9312;
+	private static int c5_end = 9331;
+	
+	//⒈⒉⒊⒋⒌⒍⒎⒏⒐⒑⒒⒓⒔⒕⒖⒗⒘⒙⒚⒛
+	private static int c6_start = 9352;
+	private static int c6_end = 9371;
+		
+	//⑴⑵⑶⑷⑸⑹⑺⑻⑼⑽⑾⑿⒀⒁⒂⒃⒄⒅⒆⒇
+	private static int c7_start = 9332;
+	private static int c7_end = 9351;
+	
+	public static int convertCharToInt(char code){
+		int code_int = ((int)code);
+		if(c1_start <= code_int && code_int <= c1_end){
+			return (code_int - c1_start+1);
+		}
+		if(c2_start <= code_int && code_int <= c2_end){
+			return (code_int - c2_start+1);
+		}
+		if(c3_start <= code_int && code_int <= c3_end){
+			return (code_int - c3_start+1);
+		}
+		if(c4_start <= code_int && code_int <= c4_end){
+			return (code_int - c4_start+1);
+		}
+		if(c5_start <= code_int && code_int <= c5_end){
+			return (code_int - c5_start+1);
+		}
+		if(c6_start <= code_int && code_int <= c6_end){
+			return (code_int - c6_start+1);
+		}
+		if(c7_start <= code_int && code_int <= c7_end){
+			return (code_int - c7_start+1);
+		}
+		return code;
+	}
+	
+	
+	public static boolean isSpecialNumberChar(char code){
+		int code_int = ((int)code);
+		if(c1_start <= code_int && code_int <= c1_end){
+			return true;
+		}
+		if(c2_start <= code_int && code_int <= c2_end){
+			return true;
+		}
+		if(c3_start <= code_int && code_int <= c3_end){
+			return true;
+		}
+		if(c4_start <= code_int && code_int <= c4_end){
+			return true;
+		}
+		if(c5_start <= code_int && code_int <= c5_end){
+			return true;
+		}
+		if(c6_start <= code_int && code_int <= c6_end){
+			return true;
+		}
+		if(c7_start <= code_int && code_int <= c7_end){
+			return true;
+		}
+		return false;
+	}
+	
+	public static char[] convertCodeToCharArray(char code){
+		if(CharacterCheckUtils.isSpecialNumberChar(code)){
+			int i = CharacterCheckUtils.convertCharToInt(code);
+			return String.valueOf(i).toCharArray();
+		}
+		char[] c = new char[1];
+		c[0] = code;
+		return c;
+	}
+	
+	
+	public static void main(String args[]){
+        String a = "⒇";
+        char[] l = a.toCharArray();
+        for (char c : l) {
+        	char[] chars = CharacterCheckUtils.convertCodeToCharArray(c);
+        	if(chars.length >1){
+        		System.out.println(chars[0]);
+        		System.out.println(chars[1]);
+        	}else{
+        		System.out.println(chars[0]);
+        	}
+        	break;
+		}
+	}
+}
+
+
