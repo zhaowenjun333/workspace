@@ -11,8 +11,8 @@ http://localhost:9200/childrecord/childrecord/_mapping
 {
   "childrecord": {
     "_all": {
-      "analyzer": "ik",
-      "search_analyzer": "ik",
+      "analyzer": "ik_smart",
+      "search_analyzer": "ik_smart",
       "term_vector": "no",
       "store": "false"
     },
@@ -21,8 +21,8 @@ http://localhost:9200/childrecord/childrecord/_mapping
         "type": "string",
         "store": "no",
         "term_vector": "with_positions_offsets",
-        "analyzer": "ik",
-        "search_analyzer": "ik",
+        "analyzer": "ik_smart",
+        "search_analyzer": "ik_smart",
         "include_in_all": "true",
         "boost": 8
       }
@@ -37,8 +37,8 @@ http://localhost:9200/topic/topic/_mapping
 {
   "topic": {
     "_all": {
-      "analyzer": "ik",
-      "search_analyzer": "ik",
+      "analyzer": "ik_smart",
+      "search_analyzer": "ik_smart",
       "term_vector": "no",
       "store": "false"
     },
@@ -47,8 +47,8 @@ http://localhost:9200/topic/topic/_mapping
         "type": "string",
         "store": "no",
         "term_vector": "with_positions_offsets",
-        "analyzer": "ik",
-        "search_analyzer": "ik",
+        "analyzer": "ik_smart",
+        "search_analyzer": "ik_smart",
         "include_in_all": "true",
         "boost": 8
       },
@@ -56,8 +56,8 @@ http://localhost:9200/topic/topic/_mapping
         "type": "string",
         "store": "no",
         "term_vector": "with_positions_offsets",
-        "analyzer": "ik",
-        "search_analyzer": "ik",
+        "analyzer": "ik_smart",
+        "search_analyzer": "ik_smart",
         "include_in_all": "true",
         "boost": 8
       }
@@ -74,8 +74,8 @@ http://localhost:9200/user/user/_mapping
 {
   "user": {
     "_all": {
-      "analyzer": "ik",
-      "search_analyzer": "ik",
+      "analyzer": "ik_smart",
+      "search_analyzer": "ik_smart",
       "term_vector": "no",
       "store": "false"
     },
@@ -84,8 +84,8 @@ http://localhost:9200/user/user/_mapping
         "type": "string",
         "store": "no",
         "term_vector": "with_positions_offsets",
-        "analyzer": "ik",
-        "search_analyzer": "ik",
+        "analyzer": "ik_smart",
+        "search_analyzer": "ik_smart",
         "include_in_all": "true",
         "boost": 8
       }
@@ -103,8 +103,8 @@ http://localhost:9200/child/child/_mapping
 {
   "child": {
     "_all": {
-      "analyzer": "ik",
-      "search_analyzer": "ik",
+      "analyzer": "ik_smart",
+      "search_analyzer": "ik_smart",
       "term_vector": "no",
       "store": "false"
     },
@@ -113,8 +113,8 @@ http://localhost:9200/child/child/_mapping
         "type": "string",
         "store": "no",
         "term_vector": "with_positions_offsets",
-        "analyzer": "ik",
-        "search_analyzer": "ik",
+        "analyzer": "ik_smart",
+        "search_analyzer": "ik_smart",
         "include_in_all": "true",
         "boost": 8
       }
