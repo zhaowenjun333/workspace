@@ -86,3 +86,6 @@ curl --user elastic:wawa2016 -XGET 'http://10.173.35.136:9201/_cluster/health?pr
 
 
 curl --user elastic:wawa2016 -XGET 'http://10.173.35.136:9201/_xpack/license'
+
+
+curl -XPUT -u elastic 'http://10.173.35.136:9201/_xpack/license' -d @license.json
