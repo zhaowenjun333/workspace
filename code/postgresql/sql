@@ -1,0 +1,10 @@
+http://www.jsjtt.com/shujuku/postgresql/29.html
+
+
+update fo_user_message u set addition = 
+
+(
+select CONCAT('{"replyId":',TRIM(addition),'}') from fo_user_message t  where t.id = u.id
+)
+
+where u.type = 'REPLY_TOPIC_POST_REPLY' and strpos(u.addition,'{') = 0 and u.addition is not null
