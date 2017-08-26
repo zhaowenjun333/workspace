@@ -2,26 +2,10 @@
 
 1.安装 bison
 
-brew install bison
-cd /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/
-sudo mv bison bison_under3
-sudo scp /usr/local/Cellar/bison/3.0.4/bin/bison ./
+sudo brew update  
 
-2.安装 libevent
+sudo brew install thrift
 
-2.1 安装 openssl http://mac-dev-env.patrickbougie.com/openssl/
-2.2 安装 libevent http://mac-dev-env.patrickbougie.com/libevent/
-
-http://mac-dev-env.patrickbougie.com/
+brew link --overwrite thrift
 
 
-3.安装 thrift
-
-http://thrift.apache.org/docs/install/os_x
-
-
-
-
-sudo mkdir -p /usr/local/mac-dev-env  环境目录  
-sudo mkdir -p /usr/local/src  原文件目录
-sudo mkdir -p /usr/local/var/log 日志目录
