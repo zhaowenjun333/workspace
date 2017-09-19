@@ -1,0 +1,6 @@
+
+重新生成共钥
+
+cd ~/.ssh/
+
+ssh-keygen -t rsa -C "wangpf@sqbj.com"
