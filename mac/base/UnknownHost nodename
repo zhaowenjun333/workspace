@@ -21,3 +21,10 @@ Step 4 – Save the hosts file
 When done editing the hosts file, press Control+x to save the file.
 
 Have fun !
+
+
+127.0.0.1	localhost
+255.255.255.255	broadcasthost
+::1             localhost
+127.0.0.1       ArvindeMacBook-Pro.local
+127.0.0.1       bogon 
